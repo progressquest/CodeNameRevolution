@@ -1,0 +1,5 @@
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\RevolutionDAL.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\RevolutionDAL.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.pdb

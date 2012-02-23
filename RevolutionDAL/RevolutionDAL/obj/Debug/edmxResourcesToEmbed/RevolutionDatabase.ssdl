@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RevolutionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="RevolutionModelStoreContainer">
+    <EntitySet Name="Character" EntityType="RevolutionModel.Store.Character" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CharacterPersonality" EntityType="RevolutionModel.Store.CharacterPersonality" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonalityPhrase" EntityType="RevolutionModel.Store.PersonalityPhrase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonalityType" EntityType="RevolutionModel.Store.PersonalityType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonalityTypeType" EntityType="RevolutionModel.Store.PersonalityTypeType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Phrase" EntityType="RevolutionModel.Store.Phrase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Topic" EntityType="RevolutionModel.Store.Topic" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CharacterPersonality_Character" Association="RevolutionModel.Store.FK_CharacterPersonality_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="CharacterPersonality" EntitySet="CharacterPersonality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CharacterPersonality_Personality" Association="RevolutionModel.Store.FK_CharacterPersonality_Personality">
+      <End Role="PersonalityType" EntitySet="PersonalityType" />
+      <End Role="CharacterPersonality" EntitySet="CharacterPersonality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalityPhrase_Personality" Association="RevolutionModel.Store.FK_PersonalityPhrase_Personality">
+      <End Role="PersonalityType" EntitySet="PersonalityType" />
+      <End Role="PersonalityPhrase" EntitySet="PersonalityPhrase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalityPhrase_Phrase" Association="RevolutionModel.Store.FK_PersonalityPhrase_Phrase">
+      <End Role="Phrase" EntitySet="Phrase" />
+      <End Role="PersonalityPhrase" EntitySet="PersonalityPhrase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalityType_PersonalityTypeType" Association="RevolutionModel.Store.FK_PersonalityType_PersonalityTypeType">
+      <End Role="PersonalityTypeType" EntitySet="PersonalityTypeType" />
+      <End Role="PersonalityType" EntitySet="PersonalityType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phrase_Topic" Association="RevolutionModel.Store.FK_Phrase_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="Phrase" EntitySet="Phrase" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Character">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CharacterPersonality">
+    <Key>
+      <PropertyRef Name="CharacterID" />
+      <PropertyRef Name="PersonalityTypeID" />
+    </Key>
+    <Property Name="CharacterID" Type="int" Nullable="false" />
+    <Property Name="PersonalityTypeID" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalityPhrase">
+    <Key>
+      <PropertyRef Name="PhraseID" />
+      <PropertyRef Name="PersonalityTypeID" />
+    </Key>
+    <Property Name="PhraseID" Type="int" Nullable="false" />
+    <Property Name="PersonalityTypeID" Type="int" Nullable="false" />
+    <Property Name="PersonalityRating" Type="int" Nullable="false" />
+    <Property Name="RatingIsGreater" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalityType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonalityTypeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Phrase">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Immediacy" Type="int" Nullable="false" />
+    <Property Name="Text" Type="ntext" Nullable="false" />
+    <Property Name="IsQuestion" Type="bit" Nullable="false" />
+    <Property Name="IsSpontaneous" Type="bit" Nullable="false" />
+    <Property Name="TopicID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="text" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CharacterPersonality_Character">
+    <End Role="Character" Type="RevolutionModel.Store.Character" Multiplicity="1" />
+    <End Role="CharacterPersonality" Type="RevolutionModel.Store.CharacterPersonality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CharacterPersonality">
+        <PropertyRef Name="CharacterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CharacterPersonality_Personality">
+    <End Role="PersonalityType" Type="RevolutionModel.Store.PersonalityType" Multiplicity="1" />
+    <End Role="CharacterPersonality" Type="RevolutionModel.Store.CharacterPersonality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalityType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CharacterPersonality">
+        <PropertyRef Name="PersonalityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalityPhrase_Personality">
+    <End Role="PersonalityType" Type="RevolutionModel.Store.PersonalityType" Multiplicity="1" />
+    <End Role="PersonalityPhrase" Type="RevolutionModel.Store.PersonalityPhrase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalityType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonalityPhrase">
+        <PropertyRef Name="PersonalityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalityPhrase_Phrase">
+    <End Role="Phrase" Type="RevolutionModel.Store.Phrase" Multiplicity="1" />
+    <End Role="PersonalityPhrase" Type="RevolutionModel.Store.PersonalityPhrase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phrase">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonalityPhrase">
+        <PropertyRef Name="PhraseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalityType_PersonalityTypeType">
+    <End Role="PersonalityTypeType" Type="RevolutionModel.Store.PersonalityTypeType" Multiplicity="1" />
+    <End Role="PersonalityType" Type="RevolutionModel.Store.PersonalityType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalityTypeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonalityType">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phrase_Topic">
+    <End Role="Topic" Type="RevolutionModel.Store.Topic" Multiplicity="1" />
+    <End Role="Phrase" Type="RevolutionModel.Store.Phrase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phrase">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
