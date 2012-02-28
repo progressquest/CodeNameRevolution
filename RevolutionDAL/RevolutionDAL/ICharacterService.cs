@@ -8,17 +8,16 @@ using System.Text;
 
 namespace RevolutionDAL
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
-    public interface ICharacterService
-    {
-        [OperationContract]
-        Character GetCharacter(int id);
+  [ServiceContract]
+  public interface ICharacterService
+  {
+    [OperationContract]
+    Character GetCharacter(int id);
 
-        [OperationContract]
-        void SaveCharacter(Character character);
+    [OperationContract]
+    Character SaveCharacter(Character character);
 
-        [OperationContract]
-        void RemoveCharacter(int id);
-    }
+    [OperationContract]
+    void RemoveCharacter(int id);
+  }
 }

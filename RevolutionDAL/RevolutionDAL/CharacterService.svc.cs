@@ -8,35 +8,37 @@ using System.Text;
 
 namespace RevolutionDAL
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    public class CharacterService : ICharacterService
+  // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
+  public class CharacterService : ICharacterService
+  {
+    public Character GetCharacter(int id)
     {
-        public Character GetCharacter(int id)
-        {
-            using (var db = new RevolutionEntities1())
-            {
-                return db.Characters.FirstOrDefault(c => c.ID == id);
-            }
-        }
-
-        public void SaveCharacter(Character character)
-        {
-            using (var db = new RevolutionEntities1())
-            {
-                db.Characters.AddObject(character);
-                db.SaveChanges();
-            }
-        }
-
-        public void RemoveCharacter(int id)
-        {
-            using (var db = new RevolutionEntities1())
-            {
-                var character = db.Characters.FirstOrDefault(c => c.ID == id);
-                if (character == null) return;
-                character.Deleted = true;
-                db.SaveChanges();
-            }
-        }
+      using (var db = new RevolutionEntities1())
+      {
+        var ch = db.Characters.Where(c => c.ID == id && !c.Deleted).FirstOrDefault();
+        return new Character { CharacterPersonalities = ch.CharacterPersonalities, Deleted = ch.Deleted, FirstName = ch.FirstName, Gender = ch.Gender, ID = ch.ID, LastName = ch.LastName }; 
+      }
     }
+
+    public Character SaveCharacter(Character character)
+    {
+      using (var db = new RevolutionEntities1())
+      {
+        db.Characters.AddObject(character);
+        db.SaveChanges();
+        return character;
+      }
+    }
+
+    public void RemoveCharacter(int id)
+    {
+      using (var db = new RevolutionEntities1())
+      {
+        var character = db.Characters.FirstOrDefault(c => c.ID == id);
+        if (character == null) return;
+        character.Deleted = true;
+        db.SaveChanges();
+      }
+    }
+  }
 }

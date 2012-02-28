@@ -32,16 +32,21 @@
       <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
       <End Role="PersonalityType" EntitySet="PersonalityTypes" />
     </AssociationSet>
+    <AssociationSet Name="FK_PersonalityTypeType_PersonalityType" Association="RevolutionModel.FK_PersonalityTypeType_PersonalityType">
+      <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
+      <End Role="PersonalityTypeType1" EntitySet="PersonalityTypeTypes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Character">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="Gender" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="CharacterPersonalities" Relationship="RevolutionModel.FK_CharacterPersonality_Character" FromRole="Character" ToRole="CharacterPersonality" />
     <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CharacterPersonality">
     <Key>
@@ -85,6 +90,8 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="PersonalityTypes" Relationship="RevolutionModel.FK_PersonalityType_PersonalityTypeType" FromRole="PersonalityTypeType" ToRole="PersonalityType" />
+    <NavigationProperty Name="PersonalityTypeType1" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType" ToRole="PersonalityTypeType1" />
+    <NavigationProperty Name="PersonalityTypeType2" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType1" ToRole="PersonalityTypeType" />
   </EntityType>
   <EntityType Name="Phrase">
     <Key>
@@ -177,6 +184,18 @@
       </Principal>
       <Dependent Role="PersonalityType">
         <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalityTypeType_PersonalityType">
+    <End Type="RevolutionModel.PersonalityTypeType" Role="PersonalityTypeType" Multiplicity="1" />
+    <End Type="RevolutionModel.PersonalityTypeType" Role="PersonalityTypeType1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalityTypeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonalityTypeType1">
+        <PropertyRef Name="ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

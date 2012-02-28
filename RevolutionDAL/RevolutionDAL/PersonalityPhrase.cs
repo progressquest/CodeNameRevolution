@@ -16,11 +16,13 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(PersonalityType))]
+    [KnownType(typeof(Phrase))]
     public partial class PersonalityPhrase
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int PhraseID
         {
             get { return _phraseID; }
@@ -37,7 +39,7 @@ namespace RevolutionDAL
             }
         }
         private int _phraseID;
-    
+        [DataMember]
         public virtual int PersonalityTypeID
         {
             get { return _personalityTypeID; }
@@ -54,13 +56,13 @@ namespace RevolutionDAL
             }
         }
         private int _personalityTypeID;
-    
+        [DataMember]
         public virtual int PersonalityRating
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual bool RatingIsGreater
         {
             get;
@@ -69,7 +71,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual PersonalityType PersonalityType
         {
             get { return _personalityType; }
@@ -84,7 +88,9 @@ namespace RevolutionDAL
             }
         }
         private PersonalityType _personalityType;
+        
     
+        [DataMember]
         public virtual Phrase Phrase
         {
             get { return _phrase; }

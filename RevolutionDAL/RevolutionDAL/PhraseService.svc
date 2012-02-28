@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RevolutionDAL.PhraseService" CodeBehind="PhraseService.svc.cs" %>

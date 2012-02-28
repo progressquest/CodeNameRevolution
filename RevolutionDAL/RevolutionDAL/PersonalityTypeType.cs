@@ -16,23 +16,36 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(PersonalityType))]
+    [KnownType(typeof(PersonalityTypeType))]
     public partial class PersonalityTypeType
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int ID
         {
-            get;
-            set;
+            get { return _iD; }
+            set
+            {
+                if (_iD != value)
+                {
+                    if (PersonalityTypeType2 != null && PersonalityTypeType2.ID != value)
+                    {
+                        PersonalityTypeType2 = null;
+                    }
+                    _iD = value;
+                }
+            }
         }
-    
+        private int _iD;
+        [DataMember]
         public virtual string Name
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Description
         {
             get;
@@ -41,7 +54,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual ICollection<PersonalityType> PersonalityTypes
         {
             get
@@ -73,9 +88,73 @@ namespace RevolutionDAL
             }
         }
         private ICollection<PersonalityType> _personalityTypes;
+        
+    
+        [DataMember]
+        public virtual PersonalityTypeType PersonalityTypeType1
+        {
+            get { return _personalityTypeType1; }
+            set
+            {
+                if (!ReferenceEquals(_personalityTypeType1, value))
+                {
+                    var previousValue = _personalityTypeType1;
+                    _personalityTypeType1 = value;
+                    FixupPersonalityTypeType1(previousValue);
+                }
+            }
+        }
+        private PersonalityTypeType _personalityTypeType1;
+        
+    
+        [DataMember]
+        public virtual PersonalityTypeType PersonalityTypeType2
+        {
+            get { return _personalityTypeType2; }
+            set
+            {
+                if (!ReferenceEquals(_personalityTypeType2, value))
+                {
+                    var previousValue = _personalityTypeType2;
+                    _personalityTypeType2 = value;
+                    FixupPersonalityTypeType2(previousValue);
+                }
+            }
+        }
+        private PersonalityTypeType _personalityTypeType2;
 
         #endregion
         #region Association Fixup
+    
+        private void FixupPersonalityTypeType1(PersonalityTypeType previousValue)
+        {
+            if (previousValue != null && ReferenceEquals(previousValue.PersonalityTypeType2, this))
+            {
+                previousValue.PersonalityTypeType2 = null;
+            }
+    
+            if (PersonalityTypeType1 != null)
+            {
+                PersonalityTypeType1.PersonalityTypeType2 = this;
+            }
+        }
+    
+        private void FixupPersonalityTypeType2(PersonalityTypeType previousValue)
+        {
+            if (previousValue != null && ReferenceEquals(previousValue.PersonalityTypeType1, this))
+            {
+                previousValue.PersonalityTypeType1 = null;
+            }
+    
+            if (PersonalityTypeType2 != null)
+            {
+                PersonalityTypeType2.PersonalityTypeType1 = this;
+                if (ID != PersonalityTypeType2.ID)
+                {
+                    ID = PersonalityTypeType2.ID;
+                }
+            }
+        }
     
         private void FixupPersonalityTypes(object sender, NotifyCollectionChangedEventArgs e)
         {

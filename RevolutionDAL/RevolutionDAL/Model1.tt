@@ -1,16 +1,4 @@
-<#
-//*********************************************************
-//
-//    Copyright (c) Microsoft. All rights reserved.
-//    This code is licensed under the Microsoft Public License.
-//    THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
-//    ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
-//    IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
-//    PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
-//
-//*********************************************************
-#>
-<#@ template language="C#" debug="false" hostspecific="true"#>
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
 <#@ include file="EF.Utility.CS.ttinclude"#><#@
  output extension=".cs"#><#
 
@@ -36,9 +24,9 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
 {
     fileManager.StartNewFile(entity.Name + ".cs");
     BeginNamespace(namespaceName, code);
+  WriteEntityTypeSerializationInfo(entity, ItemCollection, code, ef);
     bool entityHasNullableFKs = entity.NavigationProperties.Any(np => np.GetDependentProperties().Any(p=>ef.IsNullable(p)));
 #>
-[DataContract]
 <#=Accessibility.ForType(entity)#> <#=code.SpaceAfter(code.AbstractOption(entity))#>partial class <#=code.Escape(entity)#><#=code.StringBefore(" : ", code.Escape(entity.BaseType))#>
 {
 <#
@@ -50,10 +38,8 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
         bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
         bool generateAutomaticProperty = false;
 
-
-
 #>
-
+    [DataMember]
     <#=PropertyVirtualModifier(Accessibility.ForProperty(edmProperty))#> <#=code.Escape(edmProperty.TypeUsage)#> <#=code.Escape(edmProperty)#>
     {
 <#
@@ -176,7 +162,7 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
     foreach(EdmProperty edmProperty in entity.Properties.Where(p => p.TypeUsage.EdmType is ComplexType && p.DeclaringType == entity))
     {
 #>
-
+    [DataMember]
     <#=PropertyVirtualModifier(Accessibility.ForProperty(edmProperty))#> <#=code.Escape(edmProperty.TypeUsage)#> <#=code.Escape(edmProperty)#>
     {
         <#=code.SpaceAfter(Accessibility.ForGetter(edmProperty))#>get { return <#=code.FieldName(edmProperty)#>; }
@@ -202,11 +188,13 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
             inverse = null;
         }
 #>
-
+    
 <#
         if (navProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
         {
 #>
+
+    [DataMember]
     <#=PropertyVirtualModifier(Accessibility.ForReadOnlyProperty(navProperty))#> ICollection<<#=code.Escape(navProperty.ToEndMember.GetEntityType())#>> <#=code.Escape(navProperty)#>
     {
         get
@@ -269,6 +257,8 @@ foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e =>
         else
         {
 #>
+
+    [DataMember]
     <#=PropertyVirtualModifier(Accessibility.ForProperty(navProperty))#> <#=code.Escape(navProperty.ToEndMember.GetEntityType())#> <#=code.Escape(navProperty)#>
     {
 <#
@@ -642,6 +632,7 @@ foreach (ComplexType complex in ItemCollection.GetItems<ComplexType>().OrderBy(e
     fileManager.StartNewFile(complex.Name + ".cs");
     BeginNamespace(namespaceName, code);
 #>
+[DataContract(IsReference=true)]
 <#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>
 {
 <#
@@ -651,7 +642,8 @@ foreach (ComplexType complex in ItemCollection.GetItems<ComplexType>().OrderBy(e
     {
         bool isDefaultValueDefinedInModel = (edmProperty.DefaultValue != null);
 #>
-
+    
+    [DataMember]
     <#=Accessibility.ForProperty(edmProperty)#> <#=code.Escape(edmProperty.TypeUsage)#> <#=code.Escape(edmProperty)#>
 <#
         if (isDefaultValueDefinedInModel)
@@ -683,6 +675,7 @@ foreach (ComplexType complex in ItemCollection.GetItems<ComplexType>().OrderBy(e
     {
 #>
 
+    [DataMember]
     <#=Accessibility.ForProperty(edmProperty)#> <#=code.Escape(edmProperty.TypeUsage)#> <#=code.Escape(edmProperty)#>
     {
         <#=code.SpaceAfter(Accessibility.ForGetter(edmProperty))#>get { return <#=code.FieldName(edmProperty)#>; }
@@ -745,7 +738,7 @@ namespace <#=code.EscapeNamespace(namespaceName)#>
     }
 }
 
-
+ 
 void EndNamespace(string namespaceName)
 {
     if (!String.IsNullOrEmpty(namespaceName))
@@ -817,4 +810,34 @@ bool VerifyTypesAreCaseInsensitiveUnique(EdmItemCollection itemCollection)
 
     return true;
 }
+
+void WriteEntityTypeSerializationInfo(EntityType type, ItemCollection itemCollection, CodeGenerationTools code, MetadataTools tools)
+{
 #>
+[DataContract(IsReference = true)]
+<#+
+    foreach(EntityType subtype in tools.GetSubtypesOf(type, itemCollection, true))
+    {
+#>
+[KnownType(typeof(<#=code.Escape(subtype)#>))]
+<#+
+    }
+    List<EntityType> knownNavPropertyTypes = new List<EntityType>();
+    foreach(NavigationProperty navProperty in type.NavigationProperties.Where(np => np.DeclaringType == type))
+    {
+        EntityType navPropertyType = navProperty.ToEndMember.GetEntityType();
+        if(!knownNavPropertyTypes.Contains(navPropertyType))
+        {
+            knownNavPropertyTypes.Add(navPropertyType);
+        }
+    }
+    foreach(EntityType knownNavPropertyType in knownNavPropertyTypes)
+    {
+#>
+[KnownType(typeof(<#=code.Escape(knownNavPropertyType)#>))]
+<#+
+    }
+}
+
+#>
+

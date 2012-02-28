@@ -1,0 +1,5 @@
+C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\bin\Release\SafeService.dll
+C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\bin\Release\SafeService.pdb
+C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.dll
+C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.pdb

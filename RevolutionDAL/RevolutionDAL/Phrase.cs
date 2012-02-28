@@ -16,41 +16,43 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(PersonalityPhrase))]
+    [KnownType(typeof(Topic))]
     public partial class Phrase
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int ID
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual int Immediacy
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Text
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual bool IsQuestion
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual bool IsSpontaneous
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual int TopicID
         {
             get { return _topicID; }
@@ -70,7 +72,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual ICollection<PersonalityPhrase> PersonalityPhrases
         {
             get
@@ -102,7 +106,9 @@ namespace RevolutionDAL
             }
         }
         private ICollection<PersonalityPhrase> _personalityPhrases;
+        
     
+        [DataMember]
         public virtual Topic Topic
         {
             get { return _topic; }

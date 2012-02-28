@@ -28,6 +28,10 @@
       <End Role="PersonalityTypeType" EntitySet="PersonalityTypeType" />
       <End Role="PersonalityType" EntitySet="PersonalityType" />
     </AssociationSet>
+    <AssociationSet Name="FK_PersonalityTypeType_PersonalityType" Association="RevolutionModel.Store.FK_PersonalityTypeType_PersonalityType">
+      <End Role="PersonalityTypeType" EntitySet="PersonalityTypeType" />
+      <End Role="PersonalityTypeType1" EntitySet="PersonalityTypeType" />
+    </AssociationSet>
     <AssociationSet Name="FK_Phrase_Topic" Association="RevolutionModel.Store.FK_Phrase_Topic">
       <End Role="Topic" EntitySet="Topic" />
       <End Role="Phrase" EntitySet="Phrase" />
@@ -38,7 +42,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Gender" Type="bit" Nullable="false" />
     <Property Name="Deleted" Type="bit" Nullable="false" />
   </EntityType>
@@ -154,6 +159,18 @@
       </Principal>
       <Dependent Role="PersonalityType">
         <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalityTypeType_PersonalityType">
+    <End Role="PersonalityTypeType" Type="RevolutionModel.Store.PersonalityTypeType" Multiplicity="1" />
+    <End Role="PersonalityTypeType1" Type="RevolutionModel.Store.PersonalityTypeType" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PersonalityTypeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PersonalityTypeType1">
+        <PropertyRef Name="ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

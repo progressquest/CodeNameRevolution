@@ -16,23 +16,24 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(Phrase))]
     public partial class Topic
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int ID
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Name
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Description
         {
             get;
@@ -41,7 +42,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual ICollection<Phrase> Phrases
         {
             get

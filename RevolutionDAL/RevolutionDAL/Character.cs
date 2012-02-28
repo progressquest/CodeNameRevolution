@@ -16,30 +16,37 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(CharacterPersonality))]
     public partial class Character
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int ID
         {
             get;
             set;
         }
-    
-        public virtual string Name
-        {
-            get;
-            set;
-        }
-    
+        [DataMember]
         public virtual bool Gender
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual bool Deleted
+        {
+            get;
+            set;
+        }
+        [DataMember]
+        public virtual string FirstName
+        {
+            get;
+            set;
+        }
+        [DataMember]
+        public virtual string LastName
         {
             get;
             set;
@@ -47,7 +54,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual ICollection<CharacterPersonality> CharacterPersonalities
         {
             get

@@ -4,9 +4,10 @@
     <EntitySetMapping Name="Characters">
       <EntityTypeMapping TypeName="RevolutionModel.Character">
         <MappingFragment StoreEntitySet="Character">
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
         </MappingFragment>
       </EntityTypeMapping>

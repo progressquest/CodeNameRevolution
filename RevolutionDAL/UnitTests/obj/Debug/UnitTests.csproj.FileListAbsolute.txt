@@ -1,0 +1,11 @@
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\UnitTests.dll.config
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\nunit.mocks.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\SafeService.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\SafeService.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\UnitTests.pdb

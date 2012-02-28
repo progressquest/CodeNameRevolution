@@ -16,29 +16,31 @@ using System.Runtime.Serialization;
 
 namespace RevolutionDAL
 {
-    [DataContract]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(PersonalityPhrase))]
+    [KnownType(typeof(PersonalityTypeType))]
     public partial class PersonalityType
     {
         #region Primitive Properties
-    
+        [DataMember]
         public virtual int ID
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Name
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual string Description
         {
             get;
             set;
         }
-    
+        [DataMember]
         public virtual int TypeID
         {
             get { return _typeID; }
@@ -58,7 +60,9 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
     
+        [DataMember]
         public virtual ICollection<PersonalityPhrase> PersonalityPhrases
         {
             get
@@ -90,7 +94,9 @@ namespace RevolutionDAL
             }
         }
         private ICollection<PersonalityPhrase> _personalityPhrases;
+        
     
+        [DataMember]
         public virtual PersonalityTypeType PersonalityTypeType
         {
             get { return _personalityTypeType; }

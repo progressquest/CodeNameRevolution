@@ -33,6 +33,10 @@
             <End Role="PersonalityTypeType" EntitySet="PersonalityTypeType" />
             <End Role="PersonalityType" EntitySet="PersonalityType" />
           </AssociationSet>
+          <AssociationSet Name="FK_PersonalityTypeType_PersonalityType" Association="RevolutionModel.Store.FK_PersonalityTypeType_PersonalityType">
+            <End Role="PersonalityTypeType" EntitySet="PersonalityTypeType" />
+            <End Role="PersonalityTypeType1" EntitySet="PersonalityTypeType" />
+          </AssociationSet>
           <AssociationSet Name="FK_Phrase_Topic" Association="RevolutionModel.Store.FK_Phrase_Topic">
             <End Role="Topic" EntitySet="Topic" />
             <End Role="Phrase" EntitySet="Phrase" />
@@ -43,7 +47,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -162,6 +167,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PersonalityTypeType_PersonalityType">
+          <End Role="PersonalityTypeType" Type="RevolutionModel.Store.PersonalityTypeType" Multiplicity="1" />
+          <End Role="PersonalityTypeType1" Type="RevolutionModel.Store.PersonalityTypeType" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalityTypeType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonalityTypeType1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Phrase_Topic">
           <End Role="Topic" Type="RevolutionModel.Store.Topic" Multiplicity="1" />
           <End Role="Phrase" Type="RevolutionModel.Store.Phrase" Multiplicity="*" />
@@ -210,16 +227,21 @@
             <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
             <End Role="PersonalityType" EntitySet="PersonalityTypes" />
           </AssociationSet>
+          <AssociationSet Name="FK_PersonalityTypeType_PersonalityType" Association="RevolutionModel.FK_PersonalityTypeType_PersonalityType">
+            <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
+            <End Role="PersonalityTypeType1" EntitySet="PersonalityTypeTypes" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Character">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CharacterPersonalities" Relationship="RevolutionModel.FK_CharacterPersonality_Character" FromRole="Character" ToRole="CharacterPersonality" />
           <Property Type="Boolean" Name="Deleted" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CharacterPersonality">
           <Key>
@@ -263,6 +285,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="PersonalityTypes" Relationship="RevolutionModel.FK_PersonalityType_PersonalityTypeType" FromRole="PersonalityTypeType" ToRole="PersonalityType" />
+          <NavigationProperty Name="PersonalityTypeType1" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType" ToRole="PersonalityTypeType1" />
+          <NavigationProperty Name="PersonalityTypeType2" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType1" ToRole="PersonalityTypeType" />
         </EntityType>
         <EntityType Name="Phrase">
           <Key>
@@ -358,6 +382,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PersonalityTypeType_PersonalityType">
+          <End Type="RevolutionModel.PersonalityTypeType" Role="PersonalityTypeType" Multiplicity="1" />
+          <End Type="RevolutionModel.PersonalityTypeType" Role="PersonalityTypeType1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalityTypeType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonalityTypeType1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -365,9 +401,10 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="RevolutionModelStoreContainer" CdmEntityContainer="RevolutionEntities1">
           <EntitySetMapping Name="Characters"><EntityTypeMapping TypeName="RevolutionModel.Character"><MappingFragment StoreEntitySet="Character">
-            <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Gender" ColumnName="Gender" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="CharacterPersonalities"><EntityTypeMapping TypeName="RevolutionModel.CharacterPersonality"><MappingFragment StoreEntitySet="CharacterPersonality">
@@ -427,7 +464,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="RevolutionDatabase">
-        <EntityTypeShape EntityType="RevolutionModel.Character" Width="2.625" PointX="0.625" PointY="4.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="RevolutionModel.Character" Width="2.625" PointX="0.625" PointY="4.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="RevolutionModel.CharacterPersonality" Width="2.375" PointX="1.375" PointY="7" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="RevolutionModel.PersonalityPhrase" Width="2.5" PointX="5.375" PointY="1.375" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="RevolutionModel.PersonalityType" Width="2.375" PointX="4.875" PointY="4.375" Height="2.1725878906249996" IsExpanded="true" />
@@ -435,12 +472,12 @@
         <EntityTypeShape EntityType="RevolutionModel.Phrase" Width="1.75" PointX="3" PointY="1" Height="2.5571907552083326" IsExpanded="true" />
         <EntityTypeShape EntityType="RevolutionModel.Topic" Width="1.5" PointX="0.75" PointY="1.375" Height="1.7879850260416674" IsExpanded="true" />
         <AssociationConnector Association="RevolutionModel.FK_CharacterPersonality_Character" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.3125" PointY="5.9129850260416674" />
+          <ConnectorPoint PointX="2.3125" PointY="6.297587890625" />
           <ConnectorPoint PointX="2.3125" PointY="7" />
         </AssociationConnector>
         <AssociationConnector Association="RevolutionModel.FK_CharacterPersonality_Personality" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.875" PointY="6.2615364583333335" />
-          <ConnectorPoint PointX="3.53125" PointY="6.2615364583333335" />
+          <ConnectorPoint PointX="4.875" PointY="6.453837890625" />
+          <ConnectorPoint PointX="3.53125" PointY="6.453837890625" />
           <ConnectorPoint PointX="3.53125" PointY="7" />
         </AssociationConnector>
         <AssociationConnector Association="RevolutionModel.FK_PersonalityPhrase_Personality" ManuallyRouted="false">
@@ -459,6 +496,12 @@
           <ConnectorPoint PointX="8.5625" PointY="7.25" />
           <ConnectorPoint PointX="8.5625" PointY="5.4612939453125" />
           <ConnectorPoint PointX="7.25" PointY="5.4612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="RevolutionModel.FK_PersonalityTypeType_PersonalityType" >
+          <ConnectorPoint PointX="8.2899038461538463" PointY="9.422587890625" />
+          <ConnectorPoint PointX="8.2899038461538463" PointY="9.672587890625" />
+          <ConnectorPoint PointX="8.8480769230769241" PointY="9.672587890625" />
+          <ConnectorPoint PointX="8.8480769230769241" PointY="9.422587890625" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

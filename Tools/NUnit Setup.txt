@@ -1,0 +1,27 @@
+Installation
+
+1. Install
+2. In Visual Studio, click on "Tools > External Tools…"
+3. Add a tool called NUnit with these parameters:
+	a) Command:		C:\Program Files (x86)\NUnit 2.6\bin\nunit.exe
+	b) Arguments:		/run $(ProjectDir)/$(ProjectFileName)
+	c) Initial Directory:	$(ProjectDir)
+	d) Uncheck "Close on exit"
+
+
+Utilizing
+
+In the project that is doing the unit testing:
+1. Click on “Project > Add Reference…”
+2. Select “Browse” and navigate to “C:\Program Files (x86)\NUnit 2.6\bin\framework” and select the nunit.framework.dll.
+3. Add "using NUnit.Framework;" to the project
+4. Use [TestFixture] for the unit testing classes, and
+5. Use [Test] for the testing methods.
+
+
+
+
+
+
+References:
+http://www.dijksterhuis.org/setting-up-nunit-for-c-unit-testing-with-visual-studio-c-express-2008/
