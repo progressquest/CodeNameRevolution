@@ -10,3 +10,15 @@ C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\SafeSe
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.exe
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\UnitTestDebugger.exe.config
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\UnitTestDebugger.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\UnitTestDebugger.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\UnitTests.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\nunit.framework.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\UnitTests.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\nunit.framework.xml
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\ResolveAssemblyReference.cache

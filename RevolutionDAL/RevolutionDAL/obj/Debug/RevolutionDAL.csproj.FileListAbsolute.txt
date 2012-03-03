@@ -3,3 +3,8 @@ C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\RevolutionDAL.p
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.dll
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\RevolutionDAL.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\RevolutionDAL.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.pdb

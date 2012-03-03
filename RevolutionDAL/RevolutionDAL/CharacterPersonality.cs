@@ -125,8 +125,17 @@ namespace RevolutionDAL
     
         private void FixupPersonalityType(PersonalityType previousValue)
         {
+            if (previousValue != null && previousValue.CharacterPersonalities.Contains(this))
+            {
+                previousValue.CharacterPersonalities.Remove(this);
+            }
+    
             if (PersonalityType != null)
             {
+                if (!PersonalityType.CharacterPersonalities.Contains(this))
+                {
+                    PersonalityType.CharacterPersonalities.Add(this);
+                }
                 if (PersonalityTypeID != PersonalityType.ID)
                 {
                     PersonalityTypeID = PersonalityType.ID;

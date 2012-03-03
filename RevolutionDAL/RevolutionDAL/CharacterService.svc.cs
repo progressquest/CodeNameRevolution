@@ -20,6 +20,28 @@ namespace RevolutionDAL
       }
     }
 
+		public List<Character> GetAllCharacters()
+		{
+			using (var db = new RevolutionEntities1())
+			{
+				var chars = db.Characters;
+				List<Character> charactersList = new List<Character>();
+
+				foreach (Character character in chars)
+				{
+					charactersList.Add(new Character { 
+						CharacterPersonalities = character.CharacterPersonalities, 
+						Deleted = character.Deleted, 
+						FirstName = character.FirstName, 
+						Gender = character.Gender, 
+						ID = character.ID, 
+						LastName = character.LastName });
+				}
+
+				return charactersList;
+			}
+		}
+
     public Character SaveCharacter(Character character)
     {
       using (var db = new RevolutionEntities1())

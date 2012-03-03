@@ -7,6 +7,7 @@
     <EntitySet Name="PersonalityTypes" EntityType="RevolutionModel.PersonalityType" />
     <EntitySet Name="PersonalityTypeTypes" EntityType="RevolutionModel.PersonalityTypeType" />
     <EntitySet Name="Phrases" EntityType="RevolutionModel.Phrase" />
+    <EntitySet Name="sysdiagrams" EntityType="RevolutionModel.sysdiagram" />
     <EntitySet Name="Topics" EntityType="RevolutionModel.Topic" />
     <AssociationSet Name="FK_CharacterPersonality_Character" Association="RevolutionModel.FK_CharacterPersonality_Character">
       <End Role="Character" EntitySet="Characters" />
@@ -24,10 +25,6 @@
       <End Role="Phrase" EntitySet="Phrases" />
       <End Role="PersonalityPhrase" EntitySet="PersonalityPhrases" />
     </AssociationSet>
-    <AssociationSet Name="FK_Phrase_Topic" Association="RevolutionModel.FK_Phrase_Topic">
-      <End Role="Topic" EntitySet="Topics" />
-      <End Role="Phrase" EntitySet="Phrases" />
-    </AssociationSet>
     <AssociationSet Name="FK_PersonalityType_PersonalityTypeType" Association="RevolutionModel.FK_PersonalityType_PersonalityTypeType">
       <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
       <End Role="PersonalityType" EntitySet="PersonalityTypes" />
@@ -36,26 +33,30 @@
       <End Role="PersonalityTypeType" EntitySet="PersonalityTypeTypes" />
       <End Role="PersonalityTypeType1" EntitySet="PersonalityTypeTypes" />
     </AssociationSet>
+    <AssociationSet Name="FK_Phrase_Topic" Association="RevolutionModel.FK_Phrase_Topic">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="Phrase" EntitySet="Phrases" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Character">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Gender" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CharacterPersonalities" Relationship="RevolutionModel.FK_CharacterPersonality_Character" FromRole="Character" ToRole="CharacterPersonality" />
-    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="Boolean" Name="Deleted" Nullable="false" />
+    <NavigationProperty Name="CharacterPersonalities" Relationship="RevolutionModel.FK_CharacterPersonality_Character" FromRole="Character" ToRole="CharacterPersonality" />
   </EntityType>
   <EntityType Name="CharacterPersonality">
     <Key>
       <PropertyRef Name="CharacterID" />
       <PropertyRef Name="PersonalityTypeID" />
     </Key>
-    <Property Name="CharacterID" Type="Int32" Nullable="false" />
-    <Property Name="PersonalityTypeID" Type="Int32" Nullable="false" />
-    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Type="Int32" Name="CharacterID" Nullable="false" />
+    <Property Type="Int32" Name="PersonalityTypeID" Nullable="false" />
+    <Property Type="Int32" Name="Rating" Nullable="false" />
     <NavigationProperty Name="Character" Relationship="RevolutionModel.FK_CharacterPersonality_Character" FromRole="CharacterPersonality" ToRole="Character" />
     <NavigationProperty Name="PersonalityType" Relationship="RevolutionModel.FK_CharacterPersonality_Personality" FromRole="CharacterPersonality" ToRole="PersonalityType" />
   </EntityType>
@@ -64,10 +65,10 @@
       <PropertyRef Name="PhraseID" />
       <PropertyRef Name="PersonalityTypeID" />
     </Key>
-    <Property Name="PhraseID" Type="Int32" Nullable="false" />
-    <Property Name="PersonalityTypeID" Type="Int32" Nullable="false" />
-    <Property Name="PersonalityRating" Type="Int32" Nullable="false" />
-    <Property Name="RatingIsGreater" Type="Boolean" Nullable="false" />
+    <Property Type="Int32" Name="PhraseID" Nullable="false" />
+    <Property Type="Int32" Name="PersonalityTypeID" Nullable="false" />
+    <Property Type="Int32" Name="PersonalityRating" Nullable="false" />
+    <Property Type="Boolean" Name="RatingIsGreater" Nullable="false" />
     <NavigationProperty Name="PersonalityType" Relationship="RevolutionModel.FK_PersonalityPhrase_Personality" FromRole="PersonalityPhrase" ToRole="PersonalityType" />
     <NavigationProperty Name="Phrase" Relationship="RevolutionModel.FK_PersonalityPhrase_Phrase" FromRole="PersonalityPhrase" ToRole="Phrase" />
   </EntityType>
@@ -75,10 +76,11 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
-    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="TypeID" Nullable="false" />
+    <NavigationProperty Name="CharacterPersonalities" Relationship="RevolutionModel.FK_CharacterPersonality_Personality" FromRole="PersonalityType" ToRole="CharacterPersonality" />
     <NavigationProperty Name="PersonalityPhrases" Relationship="RevolutionModel.FK_PersonalityPhrase_Personality" FromRole="PersonalityType" ToRole="PersonalityPhrase" />
     <NavigationProperty Name="PersonalityTypeType" Relationship="RevolutionModel.FK_PersonalityType_PersonalityTypeType" FromRole="PersonalityType" ToRole="PersonalityTypeType" />
   </EntityType>
@@ -86,9 +88,9 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PersonalityTypes" Relationship="RevolutionModel.FK_PersonalityType_PersonalityTypeType" FromRole="PersonalityTypeType" ToRole="PersonalityType" />
     <NavigationProperty Name="PersonalityTypeType1" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType" ToRole="PersonalityTypeType1" />
     <NavigationProperty Name="PersonalityTypeType2" Relationship="RevolutionModel.FK_PersonalityTypeType_PersonalityType" FromRole="PersonalityTypeType1" ToRole="PersonalityTypeType" />
@@ -97,27 +99,37 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Immediacy" Type="Int32" Nullable="false" />
-    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="IsQuestion" Type="Boolean" Nullable="false" />
-    <Property Name="IsSpontaneous" Type="Boolean" Nullable="false" />
-    <Property Name="TopicID" Type="Int32" Nullable="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Immediacy" Nullable="false" />
+    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsQuestion" Nullable="false" />
+    <Property Type="Boolean" Name="IsSpontaneous" Nullable="false" />
+    <Property Type="Int32" Name="TopicID" Nullable="false" />
     <NavigationProperty Name="PersonalityPhrases" Relationship="RevolutionModel.FK_PersonalityPhrase_Phrase" FromRole="Phrase" ToRole="PersonalityPhrase" />
     <NavigationProperty Name="Topic" Relationship="RevolutionModel.FK_Phrase_Topic" FromRole="Phrase" ToRole="Topic" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Phrases" Relationship="RevolutionModel.FK_Phrase_Topic" FromRole="Topic" ToRole="Phrase" />
   </EntityType>
   <Association Name="FK_CharacterPersonality_Character">
-    <End Role="Character" Type="RevolutionModel.Character" Multiplicity="1" />
-    <End Role="CharacterPersonality" Type="RevolutionModel.CharacterPersonality" Multiplicity="*" />
+    <End Type="RevolutionModel.Character" Role="Character" Multiplicity="1" />
+    <End Type="RevolutionModel.CharacterPersonality" Role="CharacterPersonality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Character">
         <PropertyRef Name="ID" />
@@ -128,8 +140,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CharacterPersonality_Personality">
-    <End Role="PersonalityType" Type="RevolutionModel.PersonalityType" Multiplicity="1" />
-    <End Role="CharacterPersonality" Type="RevolutionModel.CharacterPersonality" Multiplicity="*" />
+    <End Type="RevolutionModel.PersonalityType" Role="PersonalityType" Multiplicity="1" />
+    <End Type="RevolutionModel.CharacterPersonality" Role="CharacterPersonality" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PersonalityType">
         <PropertyRef Name="ID" />
@@ -140,8 +152,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PersonalityPhrase_Personality">
-    <End Role="PersonalityType" Type="RevolutionModel.PersonalityType" Multiplicity="1" />
-    <End Role="PersonalityPhrase" Type="RevolutionModel.PersonalityPhrase" Multiplicity="*" />
+    <End Type="RevolutionModel.PersonalityType" Role="PersonalityType" Multiplicity="1" />
+    <End Type="RevolutionModel.PersonalityPhrase" Role="PersonalityPhrase" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PersonalityType">
         <PropertyRef Name="ID" />
@@ -152,26 +164,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PersonalityPhrase_Phrase">
-    <End Role="Phrase" Type="RevolutionModel.Phrase" Multiplicity="1" />
-    <End Role="PersonalityPhrase" Type="RevolutionModel.PersonalityPhrase" Multiplicity="*" />
+    <End Type="RevolutionModel.Phrase" Role="Phrase" Multiplicity="1" />
+    <End Type="RevolutionModel.PersonalityPhrase" Role="PersonalityPhrase" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Phrase">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PersonalityPhrase">
         <PropertyRef Name="PhraseID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Phrase_Topic">
-    <End Role="Topic" Type="RevolutionModel.Topic" Multiplicity="1" />
-    <End Role="Phrase" Type="RevolutionModel.Phrase" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Topic">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Phrase">
-        <PropertyRef Name="TopicID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -196,6 +196,18 @@
       </Principal>
       <Dependent Role="PersonalityTypeType1">
         <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phrase_Topic">
+    <End Type="RevolutionModel.Topic" Role="Topic" Multiplicity="1" />
+    <End Type="RevolutionModel.Phrase" Role="Phrase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phrase">
+        <PropertyRef Name="TopicID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -1,0 +1,16 @@
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\bin\Release\ServiceTester.exe.config
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\bin\Release\ServiceTester.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\bin\Release\ServiceTester.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\bin\Release\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\bin\Release\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\obj\x86\Release\ServiceTester.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\ServiceTester\obj\x86\Release\ServiceTester.pdb
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\bin\Release\ServiceTester.exe.config
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\bin\Release\ServiceTester.exe
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\bin\Release\ServiceTester.pdb
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\bin\Release\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\bin\Release\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\obj\x86\Release\ServiceTester.exe
+D:\Development\GitProjects\CodeNameRevolution\ServiceTester\ServiceTester\obj\x86\Release\ServiceTester.pdb

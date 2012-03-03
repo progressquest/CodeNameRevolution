@@ -4,70 +4,81 @@
     <EntitySetMapping Name="Characters">
       <EntityTypeMapping TypeName="RevolutionModel.Character">
         <MappingFragment StoreEntitySet="Character">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CharacterPersonalities">
       <EntityTypeMapping TypeName="RevolutionModel.CharacterPersonality">
         <MappingFragment StoreEntitySet="CharacterPersonality">
-          <ScalarProperty Name="CharacterID" ColumnName="CharacterID" />
-          <ScalarProperty Name="PersonalityTypeID" ColumnName="PersonalityTypeID" />
           <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="PersonalityTypeID" ColumnName="PersonalityTypeID" />
+          <ScalarProperty Name="CharacterID" ColumnName="CharacterID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonalityPhrases">
       <EntityTypeMapping TypeName="RevolutionModel.PersonalityPhrase">
         <MappingFragment StoreEntitySet="PersonalityPhrase">
-          <ScalarProperty Name="PhraseID" ColumnName="PhraseID" />
-          <ScalarProperty Name="PersonalityTypeID" ColumnName="PersonalityTypeID" />
-          <ScalarProperty Name="PersonalityRating" ColumnName="PersonalityRating" />
           <ScalarProperty Name="RatingIsGreater" ColumnName="RatingIsGreater" />
+          <ScalarProperty Name="PersonalityRating" ColumnName="PersonalityRating" />
+          <ScalarProperty Name="PersonalityTypeID" ColumnName="PersonalityTypeID" />
+          <ScalarProperty Name="PhraseID" ColumnName="PhraseID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonalityTypes">
       <EntityTypeMapping TypeName="RevolutionModel.PersonalityType">
         <MappingFragment StoreEntitySet="PersonalityType">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonalityTypeTypes">
       <EntityTypeMapping TypeName="RevolutionModel.PersonalityTypeType">
         <MappingFragment StoreEntitySet="PersonalityTypeType">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Phrases">
       <EntityTypeMapping TypeName="RevolutionModel.Phrase">
         <MappingFragment StoreEntitySet="Phrase">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Immediacy" ColumnName="Immediacy" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="IsQuestion" ColumnName="IsQuestion" />
-          <ScalarProperty Name="IsSpontaneous" ColumnName="IsSpontaneous" />
           <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+          <ScalarProperty Name="IsSpontaneous" ColumnName="IsSpontaneous" />
+          <ScalarProperty Name="IsQuestion" ColumnName="IsQuestion" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Immediacy" ColumnName="Immediacy" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RevolutionModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Topics">
       <EntityTypeMapping TypeName="RevolutionModel.Topic">
         <MappingFragment StoreEntitySet="Topic">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

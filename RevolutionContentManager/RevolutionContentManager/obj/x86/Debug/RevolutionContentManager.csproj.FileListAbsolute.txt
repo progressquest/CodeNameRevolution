@@ -1,0 +1,11 @@
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Debug\RevolutionContentManager.exe.config
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Debug\RevolutionContentManager.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Debug\RevolutionContentManager.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Debug\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Debug\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.Properties.Resources.resources
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.exe
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.pdb

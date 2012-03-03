@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="504f93ec-27d7-4d99-8ad2-41ef72ea0c92" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:57853/CharacterService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CharacterService.xsd" MetadataType="Schema" ID="8eaf2cd1-140e-4e87-b20f-56725c2f6e29" SourceId="1" SourceUrl="http://localhost:57853/CharacterService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CharacterService1.xsd" MetadataType="Schema" ID="2019de0f-8f1b-4d15-b16a-d805034c2af5" SourceId="1" SourceUrl="http://localhost:57853/CharacterService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CharacterService.wsdl" MetadataType="Wsdl" ID="690c1bc0-5106-44db-8b52-f4bb9604b457" SourceId="1" SourceUrl="http://localhost:57853/CharacterService.svc?wsdl" />
+    <MetadataFile FileName="CharacterService.disco" MetadataType="Disco" ID="10322bff-b78d-49d7-8cc5-93b1ddda464c" SourceId="1" SourceUrl="http://localhost:57853/CharacterService.svc?disco" />
+    <MetadataFile FileName="CharacterService2.xsd" MetadataType="Schema" ID="4b25d9a2-d422-4ff1-8319-59cda7cc3e5e" SourceId="1" SourceUrl="http://localhost:57853/CharacterService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

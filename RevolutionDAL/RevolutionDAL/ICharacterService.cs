@@ -11,6 +11,8 @@ namespace RevolutionDAL
   [ServiceContract]
   public interface ICharacterService
   {
+		[ServiceKnownType(typeof(List<Character>))]
+
     [OperationContract]
     Character GetCharacter(int id);
 
@@ -19,5 +21,8 @@ namespace RevolutionDAL
 
     [OperationContract]
     void RemoveCharacter(int id);
+
+		[OperationContract]
+		List<Character> GetAllCharacters();
   }
 }

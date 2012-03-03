@@ -78,6 +78,12 @@ namespace RevolutionDAL
         }
         private ObjectSet<Phrase> _phrases;
     
+        public ObjectSet<sysdiagram> sysdiagrams
+        {
+            get { return _sysdiagrams  ?? (_sysdiagrams = CreateObjectSet<sysdiagram>("sysdiagrams")); }
+        }
+        private ObjectSet<sysdiagram> _sysdiagrams;
+    
         public ObjectSet<Topic> Topics
         {
             get { return _topics  ?? (_topics = CreateObjectSet<Topic>("Topics")); }

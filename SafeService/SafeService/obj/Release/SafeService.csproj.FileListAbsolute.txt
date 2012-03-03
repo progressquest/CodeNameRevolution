@@ -3,3 +3,8 @@ C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\bin\Release\SafeService
 C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.dll
 C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\SafeService\SafeService\bin\Release\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\SafeService\SafeService\bin\Release\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\SafeService\SafeService\obj\Release\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\SafeService\SafeService\obj\Release\SafeService.pdb

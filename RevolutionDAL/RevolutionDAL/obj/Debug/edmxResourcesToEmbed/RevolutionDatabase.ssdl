@@ -7,6 +7,7 @@
     <EntitySet Name="PersonalityType" EntityType="RevolutionModel.Store.PersonalityType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PersonalityTypeType" EntityType="RevolutionModel.Store.PersonalityTypeType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Phrase" EntityType="RevolutionModel.Store.Phrase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="RevolutionModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Topic" EntityType="RevolutionModel.Store.Topic" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_CharacterPersonality_Character" Association="RevolutionModel.Store.FK_CharacterPersonality_Character">
       <End Role="Character" EntitySet="Character" />
@@ -93,6 +94,16 @@
     <Property Name="IsQuestion" Type="bit" Nullable="false" />
     <Property Name="IsSpontaneous" Type="bit" Nullable="false" />
     <Property Name="TopicID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Topic">
     <Key>

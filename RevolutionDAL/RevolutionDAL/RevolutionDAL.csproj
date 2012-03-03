@@ -108,6 +108,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RevolutionDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Topic.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

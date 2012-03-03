@@ -17,6 +17,7 @@ using System.Runtime.Serialization;
 namespace RevolutionDAL
 {
     [DataContract(IsReference = true)]
+    [KnownType(typeof(CharacterPersonality))]
     [KnownType(typeof(PersonalityPhrase))]
     [KnownType(typeof(PersonalityTypeType))]
     public partial class PersonalityType
@@ -60,6 +61,40 @@ namespace RevolutionDAL
 
         #endregion
         #region Navigation Properties
+        
+    
+        [DataMember]
+        public virtual ICollection<CharacterPersonality> CharacterPersonalities
+        {
+            get
+            {
+                if (_characterPersonalities == null)
+                {
+                    var newCollection = new FixupCollection<CharacterPersonality>();
+                    newCollection.CollectionChanged += FixupCharacterPersonalities;
+                    _characterPersonalities = newCollection;
+                }
+                return _characterPersonalities;
+            }
+            set
+            {
+                if (!ReferenceEquals(_characterPersonalities, value))
+                {
+                    var previousValue = _characterPersonalities as FixupCollection<CharacterPersonality>;
+                    if (previousValue != null)
+                    {
+                        previousValue.CollectionChanged -= FixupCharacterPersonalities;
+                    }
+                    _characterPersonalities = value;
+                    var newValue = value as FixupCollection<CharacterPersonality>;
+                    if (newValue != null)
+                    {
+                        newValue.CollectionChanged += FixupCharacterPersonalities;
+                    }
+                }
+            }
+        }
+        private ICollection<CharacterPersonality> _characterPersonalities;
         
     
         [DataMember]
@@ -131,6 +166,28 @@ namespace RevolutionDAL
                 if (TypeID != PersonalityTypeType.ID)
                 {
                     TypeID = PersonalityTypeType.ID;
+                }
+            }
+        }
+    
+        private void FixupCharacterPersonalities(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (CharacterPersonality item in e.NewItems)
+                {
+                    item.PersonalityType = this;
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (CharacterPersonality item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.PersonalityType, this))
+                    {
+                        item.PersonalityType = null;
+                    }
                 }
             }
         }

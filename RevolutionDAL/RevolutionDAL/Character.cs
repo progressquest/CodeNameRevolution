@@ -28,18 +28,6 @@ namespace RevolutionDAL
             set;
         }
         [DataMember]
-        public virtual bool Gender
-        {
-            get;
-            set;
-        }
-        [DataMember]
-        public virtual bool Deleted
-        {
-            get;
-            set;
-        }
-        [DataMember]
         public virtual string FirstName
         {
             get;
@@ -47,6 +35,18 @@ namespace RevolutionDAL
         }
         [DataMember]
         public virtual string LastName
+        {
+            get;
+            set;
+        }
+        [DataMember]
+        public virtual bool Gender
+        {
+            get;
+            set;
+        }
+        [DataMember]
+        public virtual bool Deleted
         {
             get;
             set;
