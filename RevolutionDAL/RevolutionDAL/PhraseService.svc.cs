@@ -22,7 +22,7 @@ namespace RevolutionDAL
     {
       using (var db = new RevolutionEntities1())
       {
-        db.Phrases.AddObject(phrase);
+        db.Phrases.Add(phrase);
         db.SaveChanges();
         return phrase;
       }
@@ -34,7 +34,7 @@ namespace RevolutionDAL
       {
         var phrase = db.Phrases.FirstOrDefault(c => c.ID == id);
         if (phrase == null) return;
-        db.DeleteObject(phrase);
+        db.Phrases.Remove(phrase);
         db.SaveChanges();
       }
     }

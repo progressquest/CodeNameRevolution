@@ -1,42 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="anyType" nillable="true" type="xs:anyType" />
-  <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
-  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
-  <xs:element name="boolean" nillable="true" type="xs:boolean" />
-  <xs:element name="byte" nillable="true" type="xs:byte" />
-  <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
-  <xs:element name="decimal" nillable="true" type="xs:decimal" />
-  <xs:element name="double" nillable="true" type="xs:double" />
-  <xs:element name="float" nillable="true" type="xs:float" />
-  <xs:element name="int" nillable="true" type="xs:int" />
-  <xs:element name="long" nillable="true" type="xs:long" />
-  <xs:element name="QName" nillable="true" type="xs:QName" />
-  <xs:element name="short" nillable="true" type="xs:short" />
-  <xs:element name="string" nillable="true" type="xs:string" />
-  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
-  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
-  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
-  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
-  <xs:element name="char" nillable="true" type="tns:char" />
-  <xs:simpleType name="char">
-    <xs:restriction base="xs:int" />
-  </xs:simpleType>
-  <xs:element name="duration" nillable="true" type="tns:duration" />
-  <xs:simpleType name="duration">
-    <xs:restriction base="xs:duration">
-      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
-      <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
-      <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="guid" nillable="true" type="tns:guid" />
-  <xs:simpleType name="guid">
-    <xs:restriction base="xs:string">
-      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:attribute name="FactoryType" type="xs:QName" />
-  <xs:attribute name="Id" type="xs:ID" />
-  <xs:attribute name="Ref" type="xs:IDREF" />
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/RevolutionDAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RevolutionDAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57853/CharacterService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfCharacter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Character" nillable="true" type="tns:Character" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharacter" nillable="true" type="tns:ArrayOfCharacter" />
+  <xs:complexType name="Character">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterPersonalities" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Character" nillable="true" type="tns:Character" />
+  <xs:complexType name="ArrayOfCharacterPersonality">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CharacterPersonality" nillable="true" type="tns:CharacterPersonality" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharacterPersonality" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+  <xs:complexType name="CharacterPersonality">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Character" nillable="true" type="tns:Character" />
+      <xs:element minOccurs="0" name="CharacterID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+      <xs:element minOccurs="0" name="PersonalityTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CharacterPersonality" nillable="true" type="tns:CharacterPersonality" />
+  <xs:complexType name="PersonalityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterPersonalities" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalityPhrases" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+      <xs:element minOccurs="0" name="PersonalityTypeType" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="TypeID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+  <xs:complexType name="ArrayOfPersonalityPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonalityPhrase" nillable="true" type="tns:PersonalityPhrase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonalityPhrase" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+  <xs:complexType name="PersonalityPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonalityRating" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+      <xs:element minOccurs="0" name="PersonalityTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Phrase" nillable="true" type="tns:Phrase" />
+      <xs:element minOccurs="0" name="PhraseID" type="xs:int" />
+      <xs:element minOccurs="0" name="RatingIsGreater" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityPhrase" nillable="true" type="tns:PersonalityPhrase" />
+  <xs:complexType name="Phrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Immediacy" type="xs:int" />
+      <xs:element minOccurs="0" name="IsQuestion" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpontaneous" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PersonalityPhrases" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Topic" nillable="true" type="tns:Topic" />
+      <xs:element minOccurs="0" name="TopicID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Phrase" nillable="true" type="tns:Phrase" />
+  <xs:complexType name="Topic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phrases" nillable="true" type="tns:ArrayOfPhrase" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Topic" nillable="true" type="tns:Topic" />
+  <xs:complexType name="ArrayOfPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Phrase" nillable="true" type="tns:Phrase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhrase" nillable="true" type="tns:ArrayOfPhrase" />
+  <xs:complexType name="PersonalityTypeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalityTypeType1" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="PersonalityTypeType2" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="PersonalityTypes" nillable="true" type="tns:ArrayOfPersonalityType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityTypeType" nillable="true" type="tns:PersonalityTypeType" />
+  <xs:complexType name="ArrayOfPersonalityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonalityType" nillable="true" type="tns:ArrayOfPersonalityType" />
 </xs:schema>

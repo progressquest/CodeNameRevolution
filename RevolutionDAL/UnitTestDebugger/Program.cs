@@ -18,6 +18,9 @@ namespace UnitTestDebugger
         tester.TestFixtureSetUp();
 
         tester.TestGetCharacter();
+        Console.WriteLine("TestGetCharacer passed.");
+        tester.TestGetAllCharacters();
+        Console.WriteLine("TestGetAllCharacer passed.");
         // add tests here
       }
       catch (Exception ex)

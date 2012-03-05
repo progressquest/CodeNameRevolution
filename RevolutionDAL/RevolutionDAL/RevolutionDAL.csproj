@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Security" />
@@ -57,6 +61,8 @@
   <ItemGroup>
     <Content Include="CharacterService.svc" />
     <Content Include="PhraseService.svc" />
+    <Content Include="References\EntityFramework.dll" />
+    <Content Include="References\EntityFramework.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -66,6 +72,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyDataContractResolverAttribute.cs" />
     <Compile Include="Character.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

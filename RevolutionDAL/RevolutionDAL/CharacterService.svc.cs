@@ -16,37 +16,24 @@ namespace RevolutionDAL
       using (var db = new RevolutionEntities1())
       {
         var ch = db.Characters.Where(c => c.ID == id && !c.Deleted).FirstOrDefault();
-        return new Character { CharacterPersonalities = ch.CharacterPersonalities, Deleted = ch.Deleted, FirstName = ch.FirstName, Gender = ch.Gender, ID = ch.ID, LastName = ch.LastName }; 
+        return ch;
       }
     }
 
 		public List<Character> GetAllCharacters()
 		{
-			using (var db = new RevolutionEntities1())
-			{
-				var chars = db.Characters;
-				List<Character> charactersList = new List<Character>();
-
-				foreach (Character character in chars)
-				{
-					charactersList.Add(new Character { 
-						CharacterPersonalities = character.CharacterPersonalities, 
-						Deleted = character.Deleted, 
-						FirstName = character.FirstName, 
-						Gender = character.Gender, 
-						ID = character.ID, 
-						LastName = character.LastName });
-				}
-
-				return charactersList;
-			}
+      using (var db = new RevolutionEntities1())
+      {
+        var chars = db.Characters.Select(ch => ch as Character).ToList();
+        return chars;
+      }
 		}
 
     public Character SaveCharacter(Character character)
     {
       using (var db = new RevolutionEntities1())
       {
-        db.Characters.AddObject(character);
+        db.Characters.Add(character);
         db.SaveChanges();
         return character;
       }

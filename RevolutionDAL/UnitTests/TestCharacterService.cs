@@ -42,5 +42,15 @@ namespace UnitTests
       Assert.AreEqual(this.Character.FirstName, character.FirstName);
       Assert.AreEqual(this.Character.LastName, character.LastName);
     }
+
+    [Test]
+    public void TestGetAllCharacters()
+    {
+      List<Character> characters = null;
+      Service<ICharacterService>.Use(client => characters = client.GetAllCharacters());
+      Assert.IsNotNull(characters);
+      Assert.IsNotEmpty(characters);
+    }
+
   }
 }
