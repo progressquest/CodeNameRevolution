@@ -1,0 +1,11 @@
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\UnitTests.dll.config
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\UnitTests.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\UnitTests.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\nunit.framework.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\nunit.mocks.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\SafeService.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\nunit.framework.xml
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\bin\Debug\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\obj\Debug\UnitTests.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTests\obj\Debug\UnitTests.pdb

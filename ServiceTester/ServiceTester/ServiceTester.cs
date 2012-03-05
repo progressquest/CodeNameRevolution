@@ -24,6 +24,11 @@ namespace ServiceTester
 
             Service<ICharacterService>.Use(client =>
             {
+                //Character ch = client.GetCharacter(1);
+                //Console.WriteLine(string.Format("FirstName: {0}, LastName: {1}, Gender: {2}, Deleted: {3}", ch.FirstName, ch.LastName, ch.Gender ? "Male" : "Female", ch.Deleted ? "True" : "False"));
+
+                //Console.ReadKey();
+
                 List<Character> chars = client.GetAllCharacters();
                 foreach (Character character in chars)
                 {
