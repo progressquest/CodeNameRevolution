@@ -30,7 +30,7 @@ namespace RevolutionDAL
 				foreach (Character character in chars)
 				{
 					charactersList.Add(new Character { 
-						CharacterPersonalities = character.CharacterPersonalities, 
+						//CharacterPersonalities = character.CharacterPersonalities, 
 						Deleted = character.Deleted, 
 						FirstName = character.FirstName, 
 						Gender = character.Gender, 
