@@ -554,7 +554,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="RevolutionDatabase">
+      <Diagram Name="RevolutionDatabase" DisplayType="false">
         <EntityTypeShape EntityType="RevolutionModel.Character" Width="2" PointX="7.25" PointY="3.625" Height="2.1725878906250031" />
         <EntityTypeShape EntityType="RevolutionModel.CharacterPersonality" Width="2" PointX="7.375" PointY="0.5" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="RevolutionModel.PersonalityPhrase" Width="2" PointX="1.375" PointY="0.5" Height="2.172587890624996" />

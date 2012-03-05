@@ -8,3 +8,5 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\Re
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\ResolveAssemblyReference.cache
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.dll
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\obj\Debug\RevolutionDAL.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\EntityFramework.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\EntityFramework.xml

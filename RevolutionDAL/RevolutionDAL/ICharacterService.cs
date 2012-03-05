@@ -11,16 +11,22 @@ namespace RevolutionDAL
   [ServiceContract]
   public interface ICharacterService
   {
-		[OperationContract]
+		[ServiceKnownType(typeof(List<Character>))]
+
+    [OperationContract]
+    [ApplyDataContractResolver]
     Character GetCharacter(int id);
 
     [OperationContract]
+    [ApplyDataContractResolver]
     Character SaveCharacter(Character character);
 
     [OperationContract]
+    [ApplyDataContractResolver]
     void RemoveCharacter(int id);
 
 		[OperationContract]
+    [ApplyDataContractResolver]
 		List<Character> GetAllCharacters();
   }
 }

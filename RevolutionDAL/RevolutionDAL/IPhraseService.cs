@@ -12,15 +12,19 @@ namespace RevolutionDAL
   public interface IPhraseService
   {
     [OperationContract]
+    [ApplyDataContractResolver]
     Phrase GetPhrase(int id);
 
     [OperationContract]
+    [ApplyDataContractResolver]
     Phrase SavePhrase(Phrase phrase);
 
     [OperationContract]
+    [ApplyDataContractResolver]
     void RemovePhrase(int id);
 
     [OperationContract]
+    [ApplyDataContractResolver]
     List<Phrase> GetPhrasesByTopic(int topicId);
   }
 }
