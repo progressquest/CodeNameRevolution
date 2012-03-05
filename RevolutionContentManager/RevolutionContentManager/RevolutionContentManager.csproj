@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterTool.cs" />
+    <Compile Include="CMSettingEnum.cs" />
+    <Compile Include="CMSettings.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +67,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ContentManagerSettingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,12 +101,20 @@
     <None Include="Service References\CharacterService\RevolutionContentManager.CharacterService.Character.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ContentManagerSettingService\ContentManagerSettingService.wsdl" />
+    <None Include="Service References\ContentManagerSettingService\ContentManagerSettingService.xsd" />
+    <None Include="Service References\ContentManagerSettingService\ContentManagerSettingService1.xsd" />
+    <None Include="Service References\ContentManagerSettingService\ContentManagerSettingService2.xsd" />
+    <None Include="Service References\ContentManagerSettingService\RevolutionContentManager.ContentManagerSettingService.ContentManagerSetting.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CharacterService\" />
+    <WCFMetadataStorage Include="Service References\ContentManagerSettingService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CharacterService\CharacterService.disco" />
@@ -108,6 +127,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CharacterService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentManagerSettingService\ContentManagerSettingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentManagerSettingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentManagerSettingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ContentManagerSettingService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

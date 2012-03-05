@@ -25,6 +25,12 @@
   <wsdl:message name="ICharacterService_RemoveCharacter_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveCharacterResponse" />
   </wsdl:message>
+  <wsdl:message name="ICharacterService_GetAllCharacters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCharacters" />
+  </wsdl:message>
+  <wsdl:message name="ICharacterService_GetAllCharacters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCharactersResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICharacterService">
     <wsdl:operation name="GetCharacter">
       <wsdl:input wsaw:Action="http://tempuri.org/ICharacterService/GetCharacter" message="tns:ICharacterService_GetCharacter_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="RemoveCharacter">
       <wsdl:input wsaw:Action="http://tempuri.org/ICharacterService/RemoveCharacter" message="tns:ICharacterService_RemoveCharacter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICharacterService/RemoveCharacterResponse" message="tns:ICharacterService_RemoveCharacter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCharacters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICharacterService/GetAllCharacters" message="tns:ICharacterService_GetAllCharacters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICharacterService/GetAllCharactersResponse" message="tns:ICharacterService_GetAllCharacters_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICharacterService" type="tns:ICharacterService">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveCharacter">
       <soap:operation soapAction="http://tempuri.org/ICharacterService/RemoveCharacter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCharacters">
+      <soap:operation soapAction="http://tempuri.org/ICharacterService/GetAllCharacters" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

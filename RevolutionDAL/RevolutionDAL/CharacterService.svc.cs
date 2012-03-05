@@ -16,7 +16,7 @@ namespace RevolutionDAL
       using (var db = new RevolutionEntities1())
       {
         var ch = db.Characters.Where(c => c.ID == id && !c.Deleted).FirstOrDefault();
-        return new Character { CharacterPersonalities = ch.CharacterPersonalities, Deleted = ch.Deleted, FirstName = ch.FirstName, Gender = ch.Gender, ID = ch.ID, LastName = ch.LastName }; 
+        return new Character { Deleted = ch.Deleted, FirstName = ch.FirstName, Gender = ch.Gender, ID = ch.ID, LastName = ch.LastName }; 
       }
     }
 
@@ -30,7 +30,6 @@ namespace RevolutionDAL
 				foreach (Character character in chars)
 				{
 					charactersList.Add(new Character { 
-						//CharacterPersonalities = character.CharacterPersonalities, 
 						Deleted = character.Deleted, 
 						FirstName = character.FirstName, 
 						Gender = character.Gender, 

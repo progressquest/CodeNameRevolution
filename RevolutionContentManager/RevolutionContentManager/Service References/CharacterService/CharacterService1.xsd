@@ -41,4 +41,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllCharacters">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCharactersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RevolutionDAL" minOccurs="0" name="GetAllCharactersResult" nillable="true" type="q4:ArrayOfCharacter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

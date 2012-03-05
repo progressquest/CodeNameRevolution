@@ -9,3 +9,4 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\Revolutio
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.exe
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Debug\RevolutionContentManager.Form1.resources

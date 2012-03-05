@@ -116,4 +116,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPersonalityType" nillable="true" type="tns:ArrayOfPersonalityType" />
+  <xs:complexType name="ArrayOfCharacter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Character" nillable="true" type="tns:Character" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharacter" nillable="true" type="tns:ArrayOfCharacter" />
 </xs:schema>

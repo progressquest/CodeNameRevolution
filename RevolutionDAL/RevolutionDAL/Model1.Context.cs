@@ -89,6 +89,12 @@ namespace RevolutionDAL
             get { return _topics  ?? (_topics = CreateObjectSet<Topic>("Topics")); }
         }
         private ObjectSet<Topic> _topics;
+    
+        public ObjectSet<ContentManagerSetting> ContentManagerSettings
+        {
+            get { return _contentManagerSettings  ?? (_contentManagerSettings = CreateObjectSet<ContentManagerSetting>("ContentManagerSettings")); }
+        }
+        private ObjectSet<ContentManagerSetting> _contentManagerSettings;
 
         #endregion
     }
