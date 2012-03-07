@@ -37,7 +37,6 @@
       <End Role="Topic" EntitySet="Topics" />
       <End Role="Phrase" EntitySet="Phrases" />
     </AssociationSet>
-    <EntitySet Name="ContentManagerSettings" EntityType="RevolutionModel.ContentManagerSetting" />
   </EntityContainer>
   <EntityType Name="Character">
     <Key>
@@ -212,13 +211,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="ContentManagerSetting">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Value" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>

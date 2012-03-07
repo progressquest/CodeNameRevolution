@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CharacterService.svc" />
-    <Content Include="ContentManagerSettingService.svc" />
     <Content Include="PhraseService.svc" />
     <Content Include="References\EntityFramework.dll" />
     <Content Include="References\EntityFramework.xml" />
@@ -83,14 +82,7 @@
     <Compile Include="CharacterService.svc.cs">
       <DependentUpon>CharacterService.svc</DependentUpon>
     </Compile>
-    <Compile Include="ContentManagerSetting.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ContentManagerSettingService.svc.cs">
-      <DependentUpon>ContentManagerSettingService.svc</DependentUpon>
-    </Compile>
     <Compile Include="ICharacterService.cs" />
-    <Compile Include="IContentManagerSettingService.cs" />
     <Compile Include="IPhraseService.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>

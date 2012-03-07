@@ -82,15 +82,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ContentManagerSettings">
-      <EntityTypeMapping TypeName="RevolutionModel.ContentManagerSetting">
-        <MappingFragment StoreEntitySet="ContentManagerSettings">
-          <ScalarProperty Name="Value" ColumnName="Value" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

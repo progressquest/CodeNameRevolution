@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RevolutionContentManager.CharacterService;
-using RevolutionContentManager.ContentManagerSettingService;
 using SafeService;
+using RevolutionContentManagerDAL;
+using System.Data.Entity;
 
 namespace RevolutionContentManager
 {
     internal class CharacterTool
     {
-        private static ContentManagerSetting CMSetting { get; set; }
-
         internal static List<Character> GetAllCharacters()
         {
             List<Character> characterList = null;
@@ -26,7 +25,8 @@ namespace RevolutionContentManager
 
         internal static bool GetShowDeletedCharacters()
         {
-            ContentManagerSetting showDeletedSetting = CMSettings.GetContentManagerSetting((int)CMSettingEnum.ShowDeletedCharacters);
+            ContentManagerClient client = new ContentManagerClient();
+            ContentManagerSetting showDeletedSetting = client.GetSetting((int)CMSettingEnum.ShowDeletedCharacters);
 
             bool showDeleted;
             Boolean.TryParse(showDeletedSetting.Value, out showDeleted);
@@ -36,11 +36,12 @@ namespace RevolutionContentManager
 
         internal static ContentManagerSetting SetShowDeletedCharacters(bool showDeleted)
         {
-            ContentManagerSetting showDeletedSetting = CMSettings.GetContentManagerSetting((int)CMSettingEnum.ShowDeletedCharacters);
+            ContentManagerClient client = new ContentManagerClient();
+            ContentManagerSetting showDeletedSetting = client.GetSetting((int)CMSettingEnum.ShowDeletedCharacters);
 
             showDeletedSetting.Value = showDeleted.ToString();
 
-            return CMSettings.SaveContentManagerSetting(showDeletedSetting);
+            return client.SaveSetting(showDeletedSetting);
         }
 
         

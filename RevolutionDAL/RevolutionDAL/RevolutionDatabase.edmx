@@ -8,7 +8,6 @@
         <EntityContainer Name="RevolutionModelStoreContainer">
           <EntitySet Name="Character" EntityType="RevolutionModel.Store.Character" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CharacterPersonality" EntityType="RevolutionModel.Store.CharacterPersonality" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ContentManagerSettings" EntityType="RevolutionModel.Store.ContentManagerSettings" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PersonalityPhrase" EntityType="RevolutionModel.Store.PersonalityPhrase" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PersonalityType" EntityType="RevolutionModel.Store.PersonalityType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PersonalityTypeType" EntityType="RevolutionModel.Store.PersonalityTypeType" store:Type="Tables" Schema="dbo" />
@@ -62,15 +61,6 @@
           <Property Name="CharacterID" Type="int" Nullable="false" />
           <Property Name="PersonalityTypeID" Type="int" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ContentManagerSettings">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
         <EntityType Name="PersonalityPhrase">
           <Key>
@@ -212,6 +202,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -253,7 +274,6 @@
             <End Role="Topic" EntitySet="Topics" />
             <End Role="Phrase" EntitySet="Phrases" />
           </AssociationSet>
-          <EntitySet Name="ContentManagerSettings" EntityType="RevolutionModel.ContentManagerSetting" />
         </EntityContainer>
         <EntityType Name="Character">
           <Key>
@@ -428,15 +448,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ContentManagerSetting">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Value" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -524,16 +535,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ContentManagerSettings">
-            <EntityTypeMapping TypeName="RevolutionModel.ContentManagerSetting">
-              <MappingFragment StoreEntitySet="ContentManagerSettings">
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -593,7 +594,6 @@
           <ConnectorPoint PointX="2.375" PointY="6.875" />
           <ConnectorPoint PointX="2.375" PointY="6.0571907552083388" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="RevolutionModel.ContentManagerSetting" Width="1.5" PointX="10" PointY="0.5" Height="1.7879850260416674" />
       </Diagram>
     </Diagrams>
   </Designer>
