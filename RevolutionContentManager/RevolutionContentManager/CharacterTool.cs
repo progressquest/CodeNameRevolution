@@ -23,27 +23,67 @@ namespace RevolutionContentManager
             return characterList;
         }
 
+        internal static Character SaveCharacter(Character character)
+        {
+            Character ch = null;
+
+            Service<ICharacterService>.Use(client =>
+            {
+                ch = client.SaveCharacter(character);
+            });
+
+            return ch;
+        }
+        
         internal static bool GetShowDeletedCharacters()
         {
-            ContentManagerClient client = new ContentManagerClient();
-            ContentManagerSetting showDeletedSetting = client.GetSetting((int)CMSettingEnum.ShowDeletedCharacters);
-
-            bool showDeleted;
-            Boolean.TryParse(showDeletedSetting.Value, out showDeleted);
-
-            return showDeleted;
+            return GetBoolSetting((int)CMSettingEnum.ShowDeletedCharacters);
         }
 
         internal static ContentManagerSetting SetShowDeletedCharacters(bool showDeleted)
         {
-            ContentManagerClient client = new ContentManagerClient();
-            ContentManagerSetting showDeletedSetting = client.GetSetting((int)CMSettingEnum.ShowDeletedCharacters);
-
-            showDeletedSetting.Value = showDeleted.ToString();
-
-            return client.SaveSetting(showDeletedSetting);
+            return SetBoolSetting(showDeleted, (int)CMSettingEnum.ShowDeletedCharacters);
         }
 
-        
+        internal static bool GetDontClearLastName()
+        {
+            return GetBoolSetting((int)CMSettingEnum.DontClearLastName);
+        }
+
+        internal static ContentManagerSetting SetDontClearLastName(bool dontClearLastName)
+        {
+            return SetBoolSetting(dontClearLastName, (int)CMSettingEnum.DontClearLastName);
+        }
+
+        internal static bool GetDontClearGender()
+        {
+            return GetBoolSetting((int)CMSettingEnum.DontClearGender);
+        }
+
+        internal static ContentManagerSetting SetDontClearGender(bool dontClearGender)
+        {
+            return SetBoolSetting(dontClearGender, (int)CMSettingEnum.DontClearGender);
+        }
+
+        private static bool GetBoolSetting(int id)
+        {
+            ContentManagerClient client = new ContentManagerClient();
+            ContentManagerSetting setting = client.GetSetting(id);
+
+            bool settingBool;
+            Boolean.TryParse(setting.Value, out settingBool);
+
+            return settingBool;
+        }
+
+        private static ContentManagerSetting SetBoolSetting(bool settingBool, int id)
+        {
+            ContentManagerClient client = new ContentManagerClient();
+            ContentManagerSetting setting = client.GetSetting(id);
+
+            setting.Value = settingBool.ToString();
+
+            return client.SaveSetting(setting);
+        }
     }
 }

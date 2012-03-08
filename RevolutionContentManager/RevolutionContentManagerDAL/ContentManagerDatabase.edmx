@@ -4,11 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ContentManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ContentManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ContentManagerModelStoreContainer">
-          <EntitySet Name="ContentManagerSettings" EntityType="ContentManagerModel.Store.ContentManagerSettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentManagerSetting" EntityType="ContentManagerModel.Store.ContentManagerSetting" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
-        <EntityType Name="ContentManagerSettings">
+        <EntityType Name="ContentManagerSetting">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -17,8 +17,7 @@
           <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ContentManagerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -29,10 +28,10 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Value" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -40,12 +39,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ContentManagerModelStoreContainer" CdmEntityContainer="ContentManagerEntities">
-          <EntitySetMapping Name="ContentManagerSettings"><EntityTypeMapping TypeName="ContentManagerModel.ContentManagerSetting"><MappingFragment StoreEntitySet="ContentManagerSettings">
-            <ScalarProperty Name="ID" ColumnName="ID" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Value" ColumnName="Value" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        <EntitySetMapping Name="ContentManagerSettings">
+            <EntityTypeMapping TypeName="ContentManagerModel.ContentManagerSetting">
+              <MappingFragment StoreEntitySet="ContentManagerSetting">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -67,7 +70,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="ContentManagerDatabase">
-        <EntityTypeShape EntityType="ContentManagerModel.ContentManagerSetting" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="ContentManagerModel.ContentManagerSetting" Width="1.5" PointX="0.5" PointY="0.5" Height="1.7879850260416674" />
       </Diagram>
     </Diagrams>
   </Designer>

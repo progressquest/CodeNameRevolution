@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ContentManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="ContentManagerModelStoreContainer">
-    <EntitySet Name="ContentManagerSettings" EntityType="ContentManagerModel.Store.ContentManagerSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContentManagerSetting" EntityType="ContentManagerModel.Store.ContentManagerSetting" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
-  <EntityType Name="ContentManagerSettings">
+  <EntityType Name="ContentManagerSetting">
     <Key>
       <PropertyRef Name="ID" />
     </Key>

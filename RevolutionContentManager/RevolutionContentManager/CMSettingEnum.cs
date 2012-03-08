@@ -7,6 +7,8 @@ namespace RevolutionContentManager
 {
     public enum CMSettingEnum
     {
-        ShowDeletedCharacters = 1
+        ShowDeletedCharacters = 1,
+        DontClearLastName,
+        DontClearGender
     }
 }

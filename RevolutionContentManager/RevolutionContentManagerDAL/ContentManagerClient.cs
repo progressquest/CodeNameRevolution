@@ -12,7 +12,7 @@ namespace RevolutionContentManagerDAL
 				using (var db = new ContentManagerEntities())
 				{
 					var setting = db.ContentManagerSettings.Where(c => c.ID == id).FirstOrDefault();
-					return new ContentManagerSetting { Value = setting.Value, Name = setting.Name, Description = setting.Description, ID = setting.ID };
+                    return setting;
 				}
 			}
 
@@ -20,7 +20,8 @@ namespace RevolutionContentManagerDAL
 			{
 				using (var db = new ContentManagerEntities())
 				{
-					db.ContentManagerSettings.AddObject(setting);
+					db.ContentManagerSettings.Attach(setting);
+                    db.ObjectStateManager.ChangeObjectState(setting, System.Data.EntityState.Modified);
 					db.SaveChanges();
 					return setting;
 				}
