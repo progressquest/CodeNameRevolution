@@ -34,11 +34,20 @@ namespace RevolutionDAL
     public Character SaveCharacter(Character character)
     {
 			using (var db = new RevolutionEntities1())
-      {
-				db.Characters.Add(character);
-        db.SaveChanges();
-        return character;
-      }
+			{
+				Character ch = db.Characters.Where(c => c.ID == character.ID).FirstOrDefault();
+
+				if (ch != default(Character))
+				{
+					db.Entry(ch).CurrentValues.SetValues(character);
+				}
+				else
+				{
+					db.Characters.Add(character);
+				}
+				db.SaveChanges();
+				return character;
+			}
     }
 
     public void RemoveCharacter(int id)

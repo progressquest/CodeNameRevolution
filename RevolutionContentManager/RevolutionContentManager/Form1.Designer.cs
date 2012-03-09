@@ -37,7 +37,7 @@
             this.currentCharacterActionButton = new System.Windows.Forms.Button();
             this.femaleRadioButton = new System.Windows.Forms.RadioButton();
             this.maleRadioButton = new System.Windows.Forms.RadioButton();
-            this.activateCharacterButton = new System.Windows.Forms.Button();
+            this.undeleteCharacterButton = new System.Windows.Forms.Button();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
@@ -82,7 +82,7 @@
             this.tabPage1.Controls.Add(this.currentCharacterActionButton);
             this.tabPage1.Controls.Add(this.femaleRadioButton);
             this.tabPage1.Controls.Add(this.maleRadioButton);
-            this.tabPage1.Controls.Add(this.activateCharacterButton);
+            this.tabPage1.Controls.Add(this.undeleteCharacterButton);
             this.tabPage1.Controls.Add(this.lastNameTextBox);
             this.tabPage1.Controls.Add(this.lastNameLabel);
             this.tabPage1.Controls.Add(this.firstNameTextBox);
@@ -136,6 +136,7 @@
             this.unselectAllCharactersButton.TabIndex = 16;
             this.unselectAllCharactersButton.Text = "Unselect All";
             this.unselectAllCharactersButton.UseVisualStyleBackColor = true;
+            this.unselectAllCharactersButton.Click += new System.EventHandler(this.unselectAllCharactersButton_Click);
             // 
             // selectAllCharactersButton
             // 
@@ -145,6 +146,7 @@
             this.selectAllCharactersButton.TabIndex = 15;
             this.selectAllCharactersButton.Text = "Select All";
             this.selectAllCharactersButton.UseVisualStyleBackColor = true;
+            this.selectAllCharactersButton.Click += new System.EventHandler(this.selectAllCharactersButton_Click);
             // 
             // currentCharacterActionButton
             // 
@@ -185,14 +187,15 @@
             this.maleRadioButton.UseVisualStyleBackColor = true;
             this.maleRadioButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maleRadioButton_KeyDown);
             // 
-            // activateCharacterButton
+            // undeleteCharacterButton
             // 
-            this.activateCharacterButton.Location = new System.Drawing.Point(9, 179);
-            this.activateCharacterButton.Name = "activateCharacterButton";
-            this.activateCharacterButton.Size = new System.Drawing.Size(86, 36);
-            this.activateCharacterButton.TabIndex = 11;
-            this.activateCharacterButton.Text = "Activate Character(s)";
-            this.activateCharacterButton.UseVisualStyleBackColor = true;
+            this.undeleteCharacterButton.Location = new System.Drawing.Point(9, 179);
+            this.undeleteCharacterButton.Name = "undeleteCharacterButton";
+            this.undeleteCharacterButton.Size = new System.Drawing.Size(86, 36);
+            this.undeleteCharacterButton.TabIndex = 11;
+            this.undeleteCharacterButton.Text = "Undelete Character(s)";
+            this.undeleteCharacterButton.UseVisualStyleBackColor = true;
+            this.undeleteCharacterButton.Click += new System.EventHandler(this.undeleteCharacterButton_Click);
             // 
             // lastNameTextBox
             // 
@@ -263,6 +266,7 @@
             this.deleteCharacterButton.TabIndex = 4;
             this.deleteCharacterButton.Text = "Delete Character(s)";
             this.deleteCharacterButton.UseVisualStyleBackColor = true;
+            this.deleteCharacterButton.Click += new System.EventHandler(this.deleteCharacterButton_Click);
             // 
             // editCharacterButton
             // 
@@ -272,6 +276,7 @@
             this.editCharacterButton.TabIndex = 3;
             this.editCharacterButton.Text = "Edit Character";
             this.editCharacterButton.UseVisualStyleBackColor = true;
+            this.editCharacterButton.Click += new System.EventHandler(this.editCharacterButton_Click);
             // 
             // createCharacterButton
             // 
@@ -323,6 +328,7 @@
             this.characterListListView.TabIndex = 0;
             this.characterListListView.UseCompatibleStateImageBehavior = false;
             this.characterListListView.View = System.Windows.Forms.View.Details;
+            this.characterListListView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.characterListListView_ItemChecked);
             // 
             // characterSelectedHeader
             // 
@@ -406,7 +412,7 @@
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label currentCharacterActionLabel;
-        private System.Windows.Forms.Button activateCharacterButton;
+        private System.Windows.Forms.Button undeleteCharacterButton;
         private System.Windows.Forms.RadioButton femaleRadioButton;
         private System.Windows.Forms.RadioButton maleRadioButton;
         private System.Windows.Forms.Button currentCharacterActionButton;
