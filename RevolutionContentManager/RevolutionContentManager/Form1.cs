@@ -18,20 +18,6 @@ namespace RevolutionContentManager
             InitializeComponent();
         }
 
-        private const string createCharacterText = "Create Character";
-        private const string createNewCharactersText = "Create New Character(s)";
-        private const string finishNewCharactersText = "Done Creating Character(s)";
-        private const string addCharacterText = "Add Character";
-
-        private const string editCharacterText = "Edit Character";
-        private const string saveCharacterEditText = "Save Changes";
-
-        private const string subItemNameId = "ID";
-        private const string subItemNameFirstName = "First Name";
-        private const string subItemNameLastName = "Last Name";
-        private const string subItemNameGender = "Gender";
-        private const string subItemNameDeleted = "Deleted";
-
         private const string emptyString = "";
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,6 +32,26 @@ namespace RevolutionContentManager
         {
 
         }
+
+        #region CharacterConstants
+
+        private const string createCharacterText = "Create Character";
+        private const string createNewCharactersText = "Create New Character(s)";
+        private const string finishNewCharactersText = "Done Creating Character(s)";
+        private const string addCharacterText = "Add Character";
+
+        private const string editCharacterText = "Edit Character";
+        private const string saveCharacterEditText = "Save Changes";
+
+        private const string subItemNameId = "ID";
+        private const string subItemNameFirstName = "First Name";
+        private const string subItemNameLastName = "Last Name";
+        private const string subItemNameGender = "Gender";
+        private const string subItemNameDeleted = "Deleted";
+
+        #endregion CharacterConstants
+
+        #region CharacterTab
 
         private void refreshCharacterListButton_Click(object sender, EventArgs e)
         {
@@ -465,5 +471,7 @@ namespace RevolutionContentManager
                 item.Checked = checkAll;
             }
         }
+
+        #endregion CharacterTab
     }
 }
