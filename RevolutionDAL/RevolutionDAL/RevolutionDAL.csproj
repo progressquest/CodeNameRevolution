@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CharacterService.svc" />
+    <Content Include="PersonalityService.svc" />
     <Content Include="PhraseService.svc" />
     <Content Include="References\EntityFramework.dll" />
     <Content Include="References\EntityFramework.xml" />
@@ -83,6 +84,7 @@
       <DependentUpon>CharacterService.svc</DependentUpon>
     </Compile>
     <Compile Include="ICharacterService.cs" />
+    <Compile Include="IPersonalityService.cs" />
     <Compile Include="IPhraseService.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -93,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalityService.svc.cs">
+      <DependentUpon>PersonalityService.svc</DependentUpon>
     </Compile>
     <Compile Include="PersonalityPhrase.cs">
       <DependentUpon>Model1.tt</DependentUpon>

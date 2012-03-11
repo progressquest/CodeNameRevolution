@@ -1,3 +1,4 @@
 *.mdf
 *.ldf
 bin/
+obj/
