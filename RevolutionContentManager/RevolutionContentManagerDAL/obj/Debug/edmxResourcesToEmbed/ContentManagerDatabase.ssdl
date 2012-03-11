@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ContentManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ContentManagerModelStoreContainer">
+    <EntitySet Name="ContentManagerSetting" EntityType="ContentManagerModel.Store.ContentManagerSetting" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ContentManagerSetting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+</Schema>

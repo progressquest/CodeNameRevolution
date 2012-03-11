@@ -7,3 +7,4 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTestD
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTestDebugger\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.exe
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTestDebugger\obj\x86\Debug\UnitTestDebugger.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\UnitTestDebugger\bin\Debug\UnitTestDebugger.exe.config

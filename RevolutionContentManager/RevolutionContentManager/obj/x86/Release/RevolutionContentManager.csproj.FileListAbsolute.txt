@@ -9,3 +9,6 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\Revolutio
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Release\RevolutionContentManager.pdb
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Release\SafeService.dll
 D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Release\SafeService.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\obj\x86\Release\RevolutionContentManager.Form1.resources
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Release\RevolutionContentManagerDAL.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionContentManager\RevolutionContentManager\bin\Release\RevolutionContentManagerDAL.pdb

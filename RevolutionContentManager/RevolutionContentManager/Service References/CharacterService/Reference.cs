@@ -900,6 +900,9 @@ namespace RevolutionContentManager.CharacterService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICharacterService/RemoveCharacter", ReplyAction="http://tempuri.org/ICharacterService/RemoveCharacterResponse")]
         void RemoveCharacter(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICharacterService/GetAllCharacters", ReplyAction="http://tempuri.org/ICharacterService/GetAllCharactersResponse")]
+        System.Collections.Generic.List<RevolutionContentManager.CharacterService.Character> GetAllCharacters();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -939,6 +942,10 @@ namespace RevolutionContentManager.CharacterService {
         
         public void RemoveCharacter(int id) {
             base.Channel.RemoveCharacter(id);
+        }
+        
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.Character> GetAllCharacters() {
+            return base.Channel.GetAllCharacters();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data.EntityModel;
 
 namespace RevolutionDAL
 {
@@ -16,27 +17,37 @@ namespace RevolutionDAL
       using (var db = new RevolutionEntities1())
       {
         var ch = db.Characters.Where(c => c.ID == id && !c.Deleted).FirstOrDefault();
-        return ch;
+				return ch;
       }
     }
 
 		public List<Character> GetAllCharacters()
 		{
-      using (var db = new RevolutionEntities1())
-      {
-        var chars = db.Characters.Select(ch => ch as Character).ToList();
-        return chars;
-      }
+			using (var db = new RevolutionEntities1())
+			{
+				var chars = db.Characters.Select(ch => ch as Character).ToList();
+
+				return chars;
+			}
 		}
 
     public Character SaveCharacter(Character character)
     {
-      using (var db = new RevolutionEntities1())
-      {
-        db.Characters.Add(character);
-        db.SaveChanges();
-        return character;
-      }
+			using (var db = new RevolutionEntities1())
+			{
+				Character ch = db.Characters.Where(c => c.ID == character.ID).FirstOrDefault();
+
+				if (ch != default(Character))
+				{
+					db.Entry(ch).CurrentValues.SetValues(character);
+				}
+				else
+				{
+					db.Characters.Add(character);
+				}
+				db.SaveChanges();
+				return character;
+			}
     }
 
     public void RemoveCharacter(int id)
