@@ -15,38 +15,38 @@ using System.Runtime.Serialization;
 namespace RevolutionDAL
 {
     [DataContract(IsReference = true)]
-    [KnownType(typeof(CharacterPersonality))]
+    [KnownType(typeof(Character))]
     [KnownType(typeof(ScopeNode))]
-    [KnownType(typeof(ScopeNodeReputation))]
-    public partial class Character
+    [KnownType(typeof(ScopeNodeReputationChildParent))]
+    public partial class ScopeNodeReputation
     {
-        public Character()
+        public ScopeNodeReputation()
         {
-            this.CharacterPersonalities = new HashSet<CharacterPersonality>();
-            this.ScopeNodeReputations = new HashSet<ScopeNodeReputation>();
+            this.ScopeNodeReputationChildParents = new HashSet<ScopeNodeReputationChildParent>();
+            this.ScopeNodeReputationChildParents1 = new HashSet<ScopeNodeReputationChildParent>();
         }
     
         [DataMember]
         public int ID { get; set; }
         [DataMember]
-        public string FirstName { get; set; }
+        public int CharacterID { get; set; }
         [DataMember]
-        public string LastName { get; set; }
+        public int ScopeNodeID { get; set; }
         [DataMember]
-        public bool Gender { get; set; }
+        public double DirectReputation { get; set; }
+        [DataMember]
+        public double EffectiveReputation { get; set; }
         [DataMember]
         public bool Deleted { get; set; }
-        [DataMember]
-        public bool NPC { get; set; }
-        [DataMember]
-        public Nullable<int> ScopeNodeID { get; set; }
     
         [DataMember]
-        public virtual ICollection<CharacterPersonality> CharacterPersonalities { get; set; }
+        public virtual Character Character { get; set; }
         [DataMember]
         public virtual ScopeNode ScopeNode { get; set; }
         [DataMember]
-        public virtual ICollection<ScopeNodeReputation> ScopeNodeReputations { get; set; }
+        public virtual ICollection<ScopeNodeReputationChildParent> ScopeNodeReputationChildParents { get; set; }
+        [DataMember]
+        public virtual ICollection<ScopeNodeReputationChildParent> ScopeNodeReputationChildParents1 { get; set; }
     }
     
 }

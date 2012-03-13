@@ -15,38 +15,22 @@ using System.Runtime.Serialization;
 namespace RevolutionDAL
 {
     [DataContract(IsReference = true)]
-    [KnownType(typeof(CharacterPersonality))]
     [KnownType(typeof(ScopeNode))]
-    [KnownType(typeof(ScopeNodeReputation))]
-    public partial class Character
+    public partial class Town
     {
-        public Character()
-        {
-            this.CharacterPersonalities = new HashSet<CharacterPersonality>();
-            this.ScopeNodeReputations = new HashSet<ScopeNodeReputation>();
-        }
-    
         [DataMember]
         public int ID { get; set; }
         [DataMember]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
         [DataMember]
-        public string LastName { get; set; }
-        [DataMember]
-        public bool Gender { get; set; }
-        [DataMember]
-        public bool Deleted { get; set; }
-        [DataMember]
-        public bool NPC { get; set; }
+        public string Description { get; set; }
         [DataMember]
         public Nullable<int> ScopeNodeID { get; set; }
+        [DataMember]
+        public bool Deleted { get; set; }
     
         [DataMember]
-        public virtual ICollection<CharacterPersonality> CharacterPersonalities { get; set; }
-        [DataMember]
         public virtual ScopeNode ScopeNode { get; set; }
-        [DataMember]
-        public virtual ICollection<ScopeNodeReputation> ScopeNodeReputations { get; set; }
     }
     
 }

@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Characters">
       <EntityTypeMapping TypeName="RevolutionModel.Character">
         <MappingFragment StoreEntitySet="Character">
+          <ScalarProperty Name="ScopeNodeID" ColumnName="ScopeNodeID" />
+          <ScalarProperty Name="NPC" ColumnName="NPC" />
           <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -76,6 +78,93 @@
     <EntitySetMapping Name="Topics">
       <EntityTypeMapping TypeName="RevolutionModel.Topic">
         <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="RevolutionModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ScopeNodeID" ColumnName="ScopeNodeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="RevolutionModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ScopeNodeID" ColumnName="ScopeNodeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeNodes">
+      <EntityTypeMapping TypeName="RevolutionModel.ScopeNode">
+        <MappingFragment StoreEntitySet="ScopeNode">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ScopeObjectID" ColumnName="ScopeObjectID" />
+          <ScalarProperty Name="ScopeNodeTypeID" ColumnName="ScopeNodeTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeNodeChildParents">
+      <EntityTypeMapping TypeName="RevolutionModel.ScopeNodeChildParent">
+        <MappingFragment StoreEntitySet="ScopeNodeChildParent">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ChildID" ColumnName="ChildID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeNodeReputations">
+      <EntityTypeMapping TypeName="RevolutionModel.ScopeNodeReputation">
+        <MappingFragment StoreEntitySet="ScopeNodeReputation">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="EffectiveReputation" ColumnName="EffectiveReputation" />
+          <ScalarProperty Name="DirectReputation" ColumnName="DirectReputation" />
+          <ScalarProperty Name="ScopeNodeID" ColumnName="ScopeNodeID" />
+          <ScalarProperty Name="CharacterID" ColumnName="CharacterID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeNodeReputationChildParents">
+      <EntityTypeMapping TypeName="RevolutionModel.ScopeNodeReputationChildParent">
+        <MappingFragment StoreEntitySet="ScopeNodeReputationChildParent">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="RepFromParentMultiplier" ColumnName="RepFromParentMultiplier" />
+          <ScalarProperty Name="RepFromChildMultiplier" ColumnName="RepFromChildMultiplier" />
+          <ScalarProperty Name="ScopeNodeChildParentID" ColumnName="ScopeNodeChildParentID" />
+          <ScalarProperty Name="ChildID" ColumnName="ChildID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScopeNodeTypes">
+      <EntityTypeMapping TypeName="RevolutionModel.ScopeNodeType">
+        <MappingFragment StoreEntitySet="ScopeNodeType">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Towns">
+      <EntityTypeMapping TypeName="RevolutionModel.Town">
+        <MappingFragment StoreEntitySet="Town">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ScopeNodeID" ColumnName="ScopeNodeID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />

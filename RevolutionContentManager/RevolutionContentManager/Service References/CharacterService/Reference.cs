@@ -40,6 +40,18 @@ namespace RevolutionContentManager.CharacterService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool NPCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScopeNodeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputation> ScopeNodeReputationsField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -124,6 +136,311 @@ namespace RevolutionContentManager.CharacterService {
                 if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
                     this.LastNameField = value;
                     this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool NPC {
+            get {
+                return this.NPCField;
+            }
+            set {
+                if ((this.NPCField.Equals(value) != true)) {
+                    this.NPCField = value;
+                    this.RaisePropertyChanged("NPC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ScopeNodeID {
+            get {
+                return this.ScopeNodeIDField;
+            }
+            set {
+                if ((this.ScopeNodeIDField.Equals(value) != true)) {
+                    this.ScopeNodeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputation> ScopeNodeReputations {
+            get {
+                return this.ScopeNodeReputationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationsField, value) != true)) {
+                    this.ScopeNodeReputationsField = value;
+                    this.RaisePropertyChanged("ScopeNodeReputations");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScopeNode", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class ScopeNode : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.Character> CharactersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.Group> GroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.Region> RegionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNode1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNode2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeChildParent> ScopeNodeChildParentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeChildParent> ScopeNodeChildParents1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputation> ScopeNodeReputationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNodeType ScopeNodeTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScopeNodeTypeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScopeObjectIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.Town> TownsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.Character> Characters {
+            get {
+                return this.CharactersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CharactersField, value) != true)) {
+                    this.CharactersField = value;
+                    this.RaisePropertyChanged("Characters");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.Group> Groups {
+            get {
+                return this.GroupsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupsField, value) != true)) {
+                    this.GroupsField = value;
+                    this.RaisePropertyChanged("Groups");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.Region> Regions {
+            get {
+                return this.RegionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegionsField, value) != true)) {
+                    this.RegionsField = value;
+                    this.RaisePropertyChanged("Regions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode1 {
+            get {
+                return this.ScopeNode1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNode1Field, value) != true)) {
+                    this.ScopeNode1Field = value;
+                    this.RaisePropertyChanged("ScopeNode1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode2 {
+            get {
+                return this.ScopeNode2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNode2Field, value) != true)) {
+                    this.ScopeNode2Field = value;
+                    this.RaisePropertyChanged("ScopeNode2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeChildParent> ScopeNodeChildParents {
+            get {
+                return this.ScopeNodeChildParentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeChildParentsField, value) != true)) {
+                    this.ScopeNodeChildParentsField = value;
+                    this.RaisePropertyChanged("ScopeNodeChildParents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeChildParent> ScopeNodeChildParents1 {
+            get {
+                return this.ScopeNodeChildParents1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeChildParents1Field, value) != true)) {
+                    this.ScopeNodeChildParents1Field = value;
+                    this.RaisePropertyChanged("ScopeNodeChildParents1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputation> ScopeNodeReputations {
+            get {
+                return this.ScopeNodeReputationsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationsField, value) != true)) {
+                    this.ScopeNodeReputationsField = value;
+                    this.RaisePropertyChanged("ScopeNodeReputations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNodeType ScopeNodeType {
+            get {
+                return this.ScopeNodeTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeTypeField, value) != true)) {
+                    this.ScopeNodeTypeField = value;
+                    this.RaisePropertyChanged("ScopeNodeType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ScopeNodeTypeID {
+            get {
+                return this.ScopeNodeTypeIDField;
+            }
+            set {
+                if ((this.ScopeNodeTypeIDField.Equals(value) != true)) {
+                    this.ScopeNodeTypeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeTypeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ScopeObjectID {
+            get {
+                return this.ScopeObjectIDField;
+            }
+            set {
+                if ((this.ScopeObjectIDField.Equals(value) != true)) {
+                    this.ScopeObjectIDField = value;
+                    this.RaisePropertyChanged("ScopeObjectID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.Town> Towns {
+            get {
+                return this.TownsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TownsField, value) != true)) {
+                    this.TownsField = value;
+                    this.RaisePropertyChanged("Towns");
                 }
             }
         }
@@ -233,6 +550,195 @@ namespace RevolutionContentManager.CharacterService {
                 if ((this.RatingField.Equals(value) != true)) {
                     this.RatingField = value;
                     this.RaisePropertyChanged("Rating");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScopeNodeReputation", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class ScopeNodeReputation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.Character CharacterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CharacterIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double DirectReputationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double EffectiveReputationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScopeNodeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParents1Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.Character Character {
+            get {
+                return this.CharacterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CharacterField, value) != true)) {
+                    this.CharacterField = value;
+                    this.RaisePropertyChanged("Character");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CharacterID {
+            get {
+                return this.CharacterIDField;
+            }
+            set {
+                if ((this.CharacterIDField.Equals(value) != true)) {
+                    this.CharacterIDField = value;
+                    this.RaisePropertyChanged("CharacterID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double DirectReputation {
+            get {
+                return this.DirectReputationField;
+            }
+            set {
+                if ((this.DirectReputationField.Equals(value) != true)) {
+                    this.DirectReputationField = value;
+                    this.RaisePropertyChanged("DirectReputation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EffectiveReputation {
+            get {
+                return this.EffectiveReputationField;
+            }
+            set {
+                if ((this.EffectiveReputationField.Equals(value) != true)) {
+                    this.EffectiveReputationField = value;
+                    this.RaisePropertyChanged("EffectiveReputation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ScopeNodeID {
+            get {
+                return this.ScopeNodeIDField;
+            }
+            set {
+                if ((this.ScopeNodeIDField.Equals(value) != true)) {
+                    this.ScopeNodeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParents {
+            get {
+                return this.ScopeNodeReputationChildParentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationChildParentsField, value) != true)) {
+                    this.ScopeNodeReputationChildParentsField = value;
+                    this.RaisePropertyChanged("ScopeNodeReputationChildParents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParents1 {
+            get {
+                return this.ScopeNodeReputationChildParents1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationChildParents1Field, value) != true)) {
+                    this.ScopeNodeReputationChildParents1Field = value;
+                    this.RaisePropertyChanged("ScopeNodeReputationChildParents1");
                 }
             }
         }
@@ -874,6 +1380,804 @@ namespace RevolutionContentManager.CharacterService {
                 if ((object.ReferenceEquals(this.PhrasesField, value) != true)) {
                     this.PhrasesField = value;
                     this.RaisePropertyChanged("Phrases");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScopeNodeType", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class ScopeNodeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNode> ScopeNodesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNode> ScopeNodes {
+            get {
+                return this.ScopeNodesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodesField, value) != true)) {
+                    this.ScopeNodesField = value;
+                    this.RaisePropertyChanged("ScopeNodes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Group", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Group : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScopeNodeIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ScopeNodeID {
+            get {
+                return this.ScopeNodeIDField;
+            }
+            set {
+                if ((this.ScopeNodeIDField.Equals(value) != true)) {
+                    this.ScopeNodeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Region", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Region : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScopeNodeIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ScopeNodeID {
+            get {
+                return this.ScopeNodeIDField;
+            }
+            set {
+                if ((this.ScopeNodeIDField.Equals(value) != true)) {
+                    this.ScopeNodeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScopeNodeChildParent", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class ScopeNodeChildParent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ChildIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ParentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNode1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParentsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ChildID {
+            get {
+                return this.ChildIDField;
+            }
+            set {
+                if ((this.ChildIDField.Equals(value) != true)) {
+                    this.ChildIDField = value;
+                    this.RaisePropertyChanged("ChildID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ParentID {
+            get {
+                return this.ParentIDField;
+            }
+            set {
+                if ((this.ParentIDField.Equals(value) != true)) {
+                    this.ParentIDField = value;
+                    this.RaisePropertyChanged("ParentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode1 {
+            get {
+                return this.ScopeNode1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNode1Field, value) != true)) {
+                    this.ScopeNode1Field = value;
+                    this.RaisePropertyChanged("ScopeNode1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<RevolutionContentManager.CharacterService.ScopeNodeReputationChildParent> ScopeNodeReputationChildParents {
+            get {
+                return this.ScopeNodeReputationChildParentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationChildParentsField, value) != true)) {
+                    this.ScopeNodeReputationChildParentsField = value;
+                    this.RaisePropertyChanged("ScopeNodeReputationChildParents");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Town", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Town : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNode ScopeNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScopeNodeIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNode ScopeNode {
+            get {
+                return this.ScopeNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeField, value) != true)) {
+                    this.ScopeNodeField = value;
+                    this.RaisePropertyChanged("ScopeNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ScopeNodeID {
+            get {
+                return this.ScopeNodeIDField;
+            }
+            set {
+                if ((this.ScopeNodeIDField.Equals(value) != true)) {
+                    this.ScopeNodeIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScopeNodeReputationChildParent", Namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class ScopeNodeReputationChildParent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ChildIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ParentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RepFromChildMultiplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RepFromParentMultiplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNodeChildParent ScopeNodeChildParentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScopeNodeChildParentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNodeReputation ScopeNodeReputationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RevolutionContentManager.CharacterService.ScopeNodeReputation ScopeNodeReputation1Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ChildID {
+            get {
+                return this.ChildIDField;
+            }
+            set {
+                if ((this.ChildIDField.Equals(value) != true)) {
+                    this.ChildIDField = value;
+                    this.RaisePropertyChanged("ChildID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Deleted {
+            get {
+                return this.DeletedField;
+            }
+            set {
+                if ((this.DeletedField.Equals(value) != true)) {
+                    this.DeletedField = value;
+                    this.RaisePropertyChanged("Deleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ParentID {
+            get {
+                return this.ParentIDField;
+            }
+            set {
+                if ((this.ParentIDField.Equals(value) != true)) {
+                    this.ParentIDField = value;
+                    this.RaisePropertyChanged("ParentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double RepFromChildMultiplier {
+            get {
+                return this.RepFromChildMultiplierField;
+            }
+            set {
+                if ((this.RepFromChildMultiplierField.Equals(value) != true)) {
+                    this.RepFromChildMultiplierField = value;
+                    this.RaisePropertyChanged("RepFromChildMultiplier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double RepFromParentMultiplier {
+            get {
+                return this.RepFromParentMultiplierField;
+            }
+            set {
+                if ((this.RepFromParentMultiplierField.Equals(value) != true)) {
+                    this.RepFromParentMultiplierField = value;
+                    this.RaisePropertyChanged("RepFromParentMultiplier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNodeChildParent ScopeNodeChildParent {
+            get {
+                return this.ScopeNodeChildParentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeChildParentField, value) != true)) {
+                    this.ScopeNodeChildParentField = value;
+                    this.RaisePropertyChanged("ScopeNodeChildParent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ScopeNodeChildParentID {
+            get {
+                return this.ScopeNodeChildParentIDField;
+            }
+            set {
+                if ((this.ScopeNodeChildParentIDField.Equals(value) != true)) {
+                    this.ScopeNodeChildParentIDField = value;
+                    this.RaisePropertyChanged("ScopeNodeChildParentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNodeReputation ScopeNodeReputation {
+            get {
+                return this.ScopeNodeReputationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputationField, value) != true)) {
+                    this.ScopeNodeReputationField = value;
+                    this.RaisePropertyChanged("ScopeNodeReputation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RevolutionContentManager.CharacterService.ScopeNodeReputation ScopeNodeReputation1 {
+            get {
+                return this.ScopeNodeReputation1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScopeNodeReputation1Field, value) != true)) {
+                    this.ScopeNodeReputation1Field = value;
+                    this.RaisePropertyChanged("ScopeNodeReputation1");
                 }
             }
         }
