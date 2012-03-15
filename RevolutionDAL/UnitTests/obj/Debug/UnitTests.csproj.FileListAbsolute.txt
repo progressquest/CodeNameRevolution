@@ -20,3 +20,8 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\ResolveAssemblyReference.cache
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\UnitTests.dll
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\ExpressionSerialization.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.xml

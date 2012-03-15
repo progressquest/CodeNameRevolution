@@ -22,3 +22,8 @@ D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\nunit.framework.xml
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\SafeService.pdb
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\ExpressionSerialization.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\RevolutionDAL.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\EntityFramework.dll
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\RevolutionDAL.pdb
+C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTestDebugger\bin\Debug\EntityFramework.xml
