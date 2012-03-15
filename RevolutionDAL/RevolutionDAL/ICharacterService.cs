@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using ExpressionSerialization;
+using System.Xml.Linq;
 
 namespace RevolutionDAL
 {
@@ -22,5 +24,8 @@ namespace RevolutionDAL
 
 		[OperationContract]
 		List<Character> GetAllCharacters();
+
+    [OperationContract]
+    List<Character> GetCharacters(XElement query);
   }
 }

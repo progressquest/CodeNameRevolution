@@ -903,6 +903,9 @@ namespace UnitTests.CharacterService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICharacterService/GetAllCharacters", ReplyAction="http://tempuri.org/ICharacterService/GetAllCharactersResponse")]
         System.Collections.Generic.List<UnitTests.CharacterService.Character> GetAllCharacters();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICharacterService/GetCharacters", ReplyAction="http://tempuri.org/ICharacterService/GetCharactersResponse")]
+        System.Collections.Generic.List<UnitTests.CharacterService.Character> GetCharacters(System.Xml.Linq.XElement query);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -946,6 +949,10 @@ namespace UnitTests.CharacterService {
         
         public System.Collections.Generic.List<UnitTests.CharacterService.Character> GetAllCharacters() {
             return base.Channel.GetAllCharacters();
+        }
+        
+        public System.Collections.Generic.List<UnitTests.CharacterService.Character> GetCharacters(System.Xml.Linq.XElement query) {
+            return base.Channel.GetCharacters(query);
         }
     }
 }

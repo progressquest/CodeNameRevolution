@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Data.EntityModel;
+using System.Xml.Linq;
+using ExpressionSerialization;
 
 namespace RevolutionDAL
 {
@@ -60,5 +62,19 @@ namespace RevolutionDAL
         db.SaveChanges();
       }
     }
+
+    public List<Character> GetCharacters(XElement query)
+    {
+      var serializer = new ExpressionSerializer();
+      var expression = serializer.Deserialize<Func<Character, bool>>(query);
+      if (expression == null)
+        return null;
+      
+      using (var db = new RevolutionEntities1())
+      {
+        return db.Characters.Where(expression).ToList();
+      }
+    }
+
   }
 }

@@ -1,34 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\UnitTests.csproj" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-03-04" time="14:24:21">
-  <environment nunit-version="2.6.0.12051" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests" machine-name="MORTENSEN-PC" user="Mortensen" user-domain="Mortensen-PC" />
+<test-results name="C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\debug\UnitTests.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-03-14" time="21:10:09">
+  <environment nunit-version="2.6.0.12051" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests" machine-name="TODD-PC" user="Todd" user-domain="Todd-PC" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Project" name="D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\UnitTests.csproj" executed="True" result="Failure" success="False" time="0.117" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\debug\UnitTests.dll" executed="True" result="Success" success="True" time="0.046" asserts="0">
     <results>
-      <test-suite type="Assembly" name="D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\UnitTests.dll" executed="True" result="Failure" success="False" time="0.093" asserts="0">
+      <test-suite type="Namespace" name="UnitTests" executed="True" result="Success" success="True" time="0.046" asserts="0">
         <results>
-          <test-suite type="Namespace" name="UnitTests" executed="True" result="Failure" success="False" time="0.092" asserts="0">
+          <test-suite type="TestFixture" name="TestCharacterService" executed="True" result="Success" success="True" time="0.045" asserts="0">
             <results>
-              <test-suite type="TestFixture" name="TestCharacterService" executed="True" result="Error" success="False" time="0.085" asserts="0">
-                <failure>
-                  <message><![CDATA[SetUp : System.TypeInitializationException : The type initializer for 'SafeService.Service`1' threw an exception.
-  ----> System.ArgumentException : The contract for UnitTests.CharacterService.ICharacterService was not defined in the app settings.  Please add UnitTests.CharacterService.ICharacterService in the AppSettings section.]]></message>
-                  <stack-trace><![CDATA[at SafeService.Service`1.Use(UseServiceDelegate`1 codeBlock) in C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\Service.cs:line 26
-at UnitTests.TestCharacterService.TestFixtureSetUp() in D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\TestCharacterService.cs:line 21
---ArgumentException
-at SafeService.Service`1.GetEndpointName() in C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\Service.cs:line 47
-at SafeService.Service`1..cctor() in C:\Users\Todd\CodeNameRevolution\SafeService\SafeService\Service.cs:line 20
-]]></stack-trace>
-                </failure>
-                <results>
-                  <test-case name="UnitTests.TestCharacterService.TestGetCharacter" executed="True" result="Failure" success="False" time="0.000" asserts="0">
-                    <failure>
-                      <message><![CDATA[TestFixtureSetUp failed in TestCharacterService]]></message>
-                      <stack-trace />
-                    </failure>
-                  </test-case>
-                </results>
-              </test-suite>
+              <test-case name="UnitTests.TestCharacterService.TestGetAllCharacters" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+              <test-case name="UnitTests.TestCharacterService.TestGetCharacter" executed="True" result="Success" success="True" time="0.019" asserts="2" />
+              <test-case name="UnitTests.TestCharacterService.TestGetCharacterByExpression" executed="True" result="Success" success="True" time="0.006" asserts="2" />
             </results>
           </test-suite>
         </results>

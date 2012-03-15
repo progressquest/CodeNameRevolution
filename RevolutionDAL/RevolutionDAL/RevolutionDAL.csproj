@@ -37,6 +37,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>References\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="ExpressionSerialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\ExpressionSerialization.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Security" />
@@ -64,6 +68,7 @@
     <Content Include="PhraseService.svc" />
     <Content Include="References\EntityFramework.dll" />
     <Content Include="References\EntityFramework.xml" />
+    <Content Include="References\ExpressionSerialization.dll" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
