@@ -52,5 +52,13 @@ namespace RevolutionDAL
         public DbSet<Phrase> Phrases { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Topic> Topics { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<ScopeNode> ScopeNodes { get; set; }
+        public DbSet<ScopeNodeChildParent> ScopeNodeChildParents { get; set; }
+        public DbSet<ScopeNodeReputation> ScopeNodeReputations { get; set; }
+        public DbSet<ScopeNodeReputationChildParent> ScopeNodeReputationChildParents { get; set; }
+        public DbSet<ScopeNodeType> ScopeNodeTypes { get; set; }
+        public DbSet<Town> Towns { get; set; }
     }
 }

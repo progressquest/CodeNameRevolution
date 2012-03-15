@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="RevolutionDAL.Personality" CodeBehind="PersonalityService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RevolutionDAL.PersonalityService" CodeBehind="PersonalityService.svc.cs" %>

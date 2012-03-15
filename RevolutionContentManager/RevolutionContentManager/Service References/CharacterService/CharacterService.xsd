@@ -1,56 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:57853/CharacterService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/RevolutionDAL" />
-  <xs:element name="GetCharacter">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCharacterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RevolutionDAL" minOccurs="0" name="GetCharacterResult" nillable="true" type="q1:Character" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCharacter">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RevolutionDAL" minOccurs="0" name="character" nillable="true" type="q2:Character" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveCharacterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RevolutionDAL" minOccurs="0" name="SaveCharacterResult" nillable="true" type="q3:Character" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveCharacter">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveCharacterResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCharacters">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAllCharactersResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RevolutionDAL" minOccurs="0" name="GetAllCharactersResult" nillable="true" type="q4:ArrayOfCharacter" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/RevolutionDAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RevolutionDAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57853/CharacterService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Character">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterPersonalities" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NPC" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeNodeReputations" nillable="true" type="tns:ArrayOfScopeNodeReputation" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Character" nillable="true" type="tns:Character" />
+  <xs:complexType name="ArrayOfCharacterPersonality">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CharacterPersonality" nillable="true" type="tns:CharacterPersonality" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharacterPersonality" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+  <xs:complexType name="CharacterPersonality">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Character" nillable="true" type="tns:Character" />
+      <xs:element minOccurs="0" name="CharacterID" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+      <xs:element minOccurs="0" name="PersonalityTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Rating" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="CharacterPersonality" nillable="true" type="tns:CharacterPersonality" />
+  <xs:complexType name="PersonalityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterPersonalities" nillable="true" type="tns:ArrayOfCharacterPersonality" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalityPhrases" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+      <xs:element minOccurs="0" name="PersonalityTypeType" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="TypeID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+  <xs:complexType name="ArrayOfPersonalityPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonalityPhrase" nillable="true" type="tns:PersonalityPhrase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonalityPhrase" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+  <xs:complexType name="PersonalityPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonalityRating" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+      <xs:element minOccurs="0" name="PersonalityTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="Phrase" nillable="true" type="tns:Phrase" />
+      <xs:element minOccurs="0" name="PhraseID" type="xs:int" />
+      <xs:element minOccurs="0" name="RatingIsGreater" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityPhrase" nillable="true" type="tns:PersonalityPhrase" />
+  <xs:complexType name="Phrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Immediacy" type="xs:int" />
+      <xs:element minOccurs="0" name="IsQuestion" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpontaneous" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PersonalityPhrases" nillable="true" type="tns:ArrayOfPersonalityPhrase" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Topic" nillable="true" type="tns:Topic" />
+      <xs:element minOccurs="0" name="TopicID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Phrase" nillable="true" type="tns:Phrase" />
+  <xs:complexType name="Topic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phrases" nillable="true" type="tns:ArrayOfPhrase" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Topic" nillable="true" type="tns:Topic" />
+  <xs:complexType name="ArrayOfPhrase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Phrase" nillable="true" type="tns:Phrase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhrase" nillable="true" type="tns:ArrayOfPhrase" />
+  <xs:complexType name="ScopeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Characters" nillable="true" type="tns:ArrayOfCharacter" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Groups" nillable="true" type="tns:ArrayOfGroup" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Regions" nillable="true" type="tns:ArrayOfRegion" />
+      <xs:element minOccurs="0" name="ScopeNode1" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNode2" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeChildParents" nillable="true" type="tns:ArrayOfScopeNodeChildParent" />
+      <xs:element minOccurs="0" name="ScopeNodeChildParents1" nillable="true" type="tns:ArrayOfScopeNodeChildParent" />
+      <xs:element minOccurs="0" name="ScopeNodeReputations" nillable="true" type="tns:ArrayOfScopeNodeReputation" />
+      <xs:element minOccurs="0" name="ScopeNodeType" nillable="true" type="tns:ScopeNodeType" />
+      <xs:element minOccurs="0" name="ScopeNodeTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeObjectID" type="xs:int" />
+      <xs:element minOccurs="0" name="Towns" nillable="true" type="tns:ArrayOfTown" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+  <xs:complexType name="ArrayOfCharacter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Character" nillable="true" type="tns:Character" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCharacter" nillable="true" type="tns:ArrayOfCharacter" />
+  <xs:complexType name="ArrayOfGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroup" nillable="true" type="tns:ArrayOfGroup" />
+  <xs:complexType name="Group">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeID" nillable="true" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Group" nillable="true" type="tns:Group" />
+  <xs:complexType name="Region">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeID" nillable="true" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Region" nillable="true" type="tns:Region" />
+  <xs:complexType name="ScopeNodeReputation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Character" nillable="true" type="tns:Character" />
+      <xs:element minOccurs="0" name="CharacterID" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DirectReputation" type="xs:double" />
+      <xs:element minOccurs="0" name="EffectiveReputation" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeNodeReputationChildParents" nillable="true" type="tns:ArrayOfScopeNodeReputationChildParent" />
+      <xs:element minOccurs="0" name="ScopeNodeReputationChildParents1" nillable="true" type="tns:ArrayOfScopeNodeReputationChildParent" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ScopeNodeReputation" nillable="true" type="tns:ScopeNodeReputation" />
+  <xs:complexType name="ArrayOfScopeNodeReputationChildParent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScopeNodeReputationChildParent" nillable="true" type="tns:ScopeNodeReputationChildParent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScopeNodeReputationChildParent" nillable="true" type="tns:ArrayOfScopeNodeReputationChildParent" />
+  <xs:complexType name="ScopeNodeReputationChildParent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildID" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentID" type="xs:int" />
+      <xs:element minOccurs="0" name="RepFromChildMultiplier" type="xs:double" />
+      <xs:element minOccurs="0" name="RepFromParentMultiplier" type="xs:double" />
+      <xs:element minOccurs="0" name="ScopeNodeChildParent" nillable="true" type="tns:ScopeNodeChildParent" />
+      <xs:element minOccurs="0" name="ScopeNodeChildParentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeNodeReputation" nillable="true" type="tns:ScopeNodeReputation" />
+      <xs:element minOccurs="0" name="ScopeNodeReputation1" nillable="true" type="tns:ScopeNodeReputation" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ScopeNodeReputationChildParent" nillable="true" type="tns:ScopeNodeReputationChildParent" />
+  <xs:complexType name="ScopeNodeChildParent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildID" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNode1" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeReputationChildParents" nillable="true" type="tns:ArrayOfScopeNodeReputationChildParent" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ScopeNodeChildParent" nillable="true" type="tns:ScopeNodeChildParent" />
+  <xs:complexType name="PersonalityTypeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalityTypeType1" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="PersonalityTypeType2" nillable="true" type="tns:PersonalityTypeType" />
+      <xs:element minOccurs="0" name="PersonalityTypes" nillable="true" type="tns:ArrayOfPersonalityType" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="PersonalityTypeType" nillable="true" type="tns:PersonalityTypeType" />
+  <xs:complexType name="ArrayOfPersonalityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonalityType" nillable="true" type="tns:PersonalityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonalityType" nillable="true" type="tns:ArrayOfPersonalityType" />
+  <xs:complexType name="Town">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+      <xs:element minOccurs="0" name="ScopeNodeID" nillable="true" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Town" nillable="true" type="tns:Town" />
+  <xs:complexType name="ScopeNodeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScopeNodes" nillable="true" type="tns:ArrayOfScopeNode" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ScopeNodeType" nillable="true" type="tns:ScopeNodeType" />
+  <xs:complexType name="ArrayOfScopeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScopeNode" nillable="true" type="tns:ScopeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScopeNode" nillable="true" type="tns:ArrayOfScopeNode" />
+  <xs:complexType name="ArrayOfRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Region" nillable="true" type="tns:Region" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegion" nillable="true" type="tns:ArrayOfRegion" />
+  <xs:complexType name="ArrayOfScopeNodeChildParent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScopeNodeChildParent" nillable="true" type="tns:ScopeNodeChildParent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScopeNodeChildParent" nillable="true" type="tns:ArrayOfScopeNodeChildParent" />
+  <xs:complexType name="ArrayOfScopeNodeReputation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScopeNodeReputation" nillable="true" type="tns:ScopeNodeReputation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScopeNodeReputation" nillable="true" type="tns:ArrayOfScopeNodeReputation" />
+  <xs:complexType name="ArrayOfTown">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Town" nillable="true" type="tns:Town" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTown" nillable="true" type="tns:ArrayOfTown" />
 </xs:schema>

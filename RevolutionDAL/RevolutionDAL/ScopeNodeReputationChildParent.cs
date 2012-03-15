@@ -15,38 +15,31 @@ using System.Runtime.Serialization;
 namespace RevolutionDAL
 {
     [DataContract(IsReference = true)]
-    [KnownType(typeof(CharacterPersonality))]
-    [KnownType(typeof(ScopeNode))]
+    [KnownType(typeof(ScopeNodeChildParent))]
     [KnownType(typeof(ScopeNodeReputation))]
-    public partial class Character
+    public partial class ScopeNodeReputationChildParent
     {
-        public Character()
-        {
-            this.CharacterPersonalities = new HashSet<CharacterPersonality>();
-            this.ScopeNodeReputations = new HashSet<ScopeNodeReputation>();
-        }
-    
         [DataMember]
         public int ID { get; set; }
         [DataMember]
-        public string FirstName { get; set; }
+        public int ParentID { get; set; }
         [DataMember]
-        public string LastName { get; set; }
+        public int ChildID { get; set; }
         [DataMember]
-        public bool Gender { get; set; }
+        public int ScopeNodeChildParentID { get; set; }
+        [DataMember]
+        public double RepFromChildMultiplier { get; set; }
+        [DataMember]
+        public double RepFromParentMultiplier { get; set; }
         [DataMember]
         public bool Deleted { get; set; }
-        [DataMember]
-        public bool NPC { get; set; }
-        [DataMember]
-        public Nullable<int> ScopeNodeID { get; set; }
     
         [DataMember]
-        public virtual ICollection<CharacterPersonality> CharacterPersonalities { get; set; }
+        public virtual ScopeNodeChildParent ScopeNodeChildParent { get; set; }
         [DataMember]
-        public virtual ScopeNode ScopeNode { get; set; }
+        public virtual ScopeNodeReputation ScopeNodeReputation { get; set; }
         [DataMember]
-        public virtual ICollection<ScopeNodeReputation> ScopeNodeReputations { get; set; }
+        public virtual ScopeNodeReputation ScopeNodeReputation1 { get; set; }
     }
     
 }

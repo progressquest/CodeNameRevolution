@@ -3,12 +3,24 @@
   <EntityContainer Name="RevolutionModelStoreContainer">
     <EntitySet Name="Character" EntityType="RevolutionModel.Store.Character" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CharacterPersonality" EntityType="RevolutionModel.Store.CharacterPersonality" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Group" EntityType="RevolutionModel.Store.Group" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PersonalityPhrase" EntityType="RevolutionModel.Store.PersonalityPhrase" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PersonalityType" EntityType="RevolutionModel.Store.PersonalityType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PersonalityTypeType" EntityType="RevolutionModel.Store.PersonalityTypeType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Phrase" EntityType="RevolutionModel.Store.Phrase" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Region" EntityType="RevolutionModel.Store.Region" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeNode" EntityType="RevolutionModel.Store.ScopeNode" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeNodeChildParent" EntityType="RevolutionModel.Store.ScopeNodeChildParent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeNodeReputation" EntityType="RevolutionModel.Store.ScopeNodeReputation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeNodeReputationChildParent" EntityType="RevolutionModel.Store.ScopeNodeReputationChildParent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScopeNodeType" EntityType="RevolutionModel.Store.ScopeNodeType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="sysdiagrams" EntityType="RevolutionModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Topic" EntityType="RevolutionModel.Store.Topic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Town" EntityType="RevolutionModel.Store.Town" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Character_ScopeNode" Association="RevolutionModel.Store.FK_Character_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="Character" EntitySet="Character" />
+    </AssociationSet>
     <AssociationSet Name="FK_CharacterPersonality_Character" Association="RevolutionModel.Store.FK_CharacterPersonality_Character">
       <End Role="Character" EntitySet="Character" />
       <End Role="CharacterPersonality" EntitySet="CharacterPersonality" />
@@ -16,6 +28,10 @@
     <AssociationSet Name="FK_CharacterPersonality_Personality" Association="RevolutionModel.Store.FK_CharacterPersonality_Personality">
       <End Role="PersonalityType" EntitySet="PersonalityType" />
       <End Role="CharacterPersonality" EntitySet="CharacterPersonality" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_ScopeNode" Association="RevolutionModel.Store.FK_Group_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="Group" EntitySet="Group" />
     </AssociationSet>
     <AssociationSet Name="FK_PersonalityPhrase_Personality" Association="RevolutionModel.Store.FK_PersonalityPhrase_Personality">
       <End Role="PersonalityType" EntitySet="PersonalityType" />
@@ -37,6 +53,50 @@
       <End Role="Topic" EntitySet="Topic" />
       <End Role="Phrase" EntitySet="Phrase" />
     </AssociationSet>
+    <AssociationSet Name="FK_Region_ScopeNode" Association="RevolutionModel.Store.FK_Region_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="Region" EntitySet="Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNode_ScopeNode" Association="RevolutionModel.Store.FK_ScopeNode_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="ScopeNode1" EntitySet="ScopeNode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNode_ScopeNodeType" Association="RevolutionModel.Store.FK_ScopeNode_ScopeNodeType">
+      <End Role="ScopeNodeType" EntitySet="ScopeNodeType" />
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeChildParent_ScopeNode" Association="RevolutionModel.Store.FK_ScopeNodeChildParent_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="ScopeNodeChildParent" EntitySet="ScopeNodeChildParent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeChildParent_ScopeNode1" Association="RevolutionModel.Store.FK_ScopeNodeChildParent_ScopeNode1">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="ScopeNodeChildParent" EntitySet="ScopeNodeChildParent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeReputation_Character" Association="RevolutionModel.Store.FK_ScopeNodeReputation_Character">
+      <End Role="Character" EntitySet="Character" />
+      <End Role="ScopeNodeReputation" EntitySet="ScopeNodeReputation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeReputation_ScopeNode" Association="RevolutionModel.Store.FK_ScopeNodeReputation_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="ScopeNodeReputation" EntitySet="ScopeNodeReputation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeReputationChildParent_ScopeNodeChildParent" Association="RevolutionModel.Store.FK_ScopeNodeReputationChildParent_ScopeNodeChildParent">
+      <End Role="ScopeNodeChildParent" EntitySet="ScopeNodeChildParent" />
+      <End Role="ScopeNodeReputationChildParent" EntitySet="ScopeNodeReputationChildParent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeReputationChildParent_ScopeNodeReputation" Association="RevolutionModel.Store.FK_ScopeNodeReputationChildParent_ScopeNodeReputation">
+      <End Role="ScopeNodeReputation" EntitySet="ScopeNodeReputation" />
+      <End Role="ScopeNodeReputationChildParent" EntitySet="ScopeNodeReputationChildParent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScopeNodeReputationChildParent_ScopeNodeReputation1" Association="RevolutionModel.Store.FK_ScopeNodeReputationChildParent_ScopeNodeReputation1">
+      <End Role="ScopeNodeReputation" EntitySet="ScopeNodeReputation" />
+      <End Role="ScopeNodeReputationChildParent" EntitySet="ScopeNodeReputationChildParent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Town_ScopeNode" Association="RevolutionModel.Store.FK_Town_ScopeNode">
+      <End Role="ScopeNode" EntitySet="ScopeNode" />
+      <End Role="Town" EntitySet="Town" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Character">
     <Key>
@@ -46,6 +106,8 @@
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="NPC" Type="bit" Nullable="false" />
+    <Property Name="ScopeNodeID" Type="int" />
     <Property Name="Deleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="CharacterPersonality">
@@ -56,6 +118,16 @@
     <Property Name="CharacterID" Type="int" Nullable="false" />
     <Property Name="PersonalityTypeID" Type="int" Nullable="false" />
     <Property Name="Rating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ScopeNodeID" Type="int" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PersonalityPhrase">
     <Key>
@@ -95,6 +167,65 @@
     <Property Name="IsSpontaneous" Type="bit" Nullable="false" />
     <Property Name="TopicID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ScopeNodeID" Type="int" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeNode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ScopeNodeTypeID" Type="int" Nullable="false" />
+    <Property Name="ScopeObjectID" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeNodeChildParent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="ChildID" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeNodeReputation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CharacterID" Type="int" Nullable="false" />
+    <Property Name="ScopeNodeID" Type="int" Nullable="false" />
+    <Property Name="DirectReputation" Type="float" Nullable="false" />
+    <Property Name="EffectiveReputation" Type="float" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeNodeReputationChildParent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+    <Property Name="ChildID" Type="int" Nullable="false" />
+    <Property Name="ScopeNodeChildParentID" Type="int" Nullable="false" />
+    <Property Name="RepFromChildMultiplier" Type="float" Nullable="false" />
+    <Property Name="RepFromParentMultiplier" Type="float" Nullable="false" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScopeNodeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -113,6 +244,28 @@
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Description" Type="text" Nullable="false" />
   </EntityType>
+  <EntityType Name="Town">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ScopeNodeID" Type="int" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Character_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="0..1" />
+    <End Role="Character" Type="RevolutionModel.Store.Character" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Character">
+        <PropertyRef Name="ScopeNodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CharacterPersonality_Character">
     <End Role="Character" Type="RevolutionModel.Store.Character" Multiplicity="1" />
     <End Role="CharacterPersonality" Type="RevolutionModel.Store.CharacterPersonality" Multiplicity="*" />
@@ -134,6 +287,18 @@
       </Principal>
       <Dependent Role="CharacterPersonality">
         <PropertyRef Name="PersonalityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="0..1" />
+    <End Role="Group" Type="RevolutionModel.Store.Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="ScopeNodeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -194,6 +359,138 @@
       </Principal>
       <Dependent Role="Phrase">
         <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="0..1" />
+    <End Role="Region" Type="RevolutionModel.Store.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="ScopeNodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNode_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="1" />
+    <End Role="ScopeNode1" Type="RevolutionModel.Store.ScopeNode" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNode1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNode_ScopeNodeType">
+    <End Role="ScopeNodeType" Type="RevolutionModel.Store.ScopeNodeType" Multiplicity="1" />
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNodeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNode">
+        <PropertyRef Name="ScopeNodeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeChildParent_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="1" />
+    <End Role="ScopeNodeChildParent" Type="RevolutionModel.Store.ScopeNodeChildParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeChildParent">
+        <PropertyRef Name="ChildID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeChildParent_ScopeNode1">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="1" />
+    <End Role="ScopeNodeChildParent" Type="RevolutionModel.Store.ScopeNodeChildParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeChildParent">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeReputation_Character">
+    <End Role="Character" Type="RevolutionModel.Store.Character" Multiplicity="1" />
+    <End Role="ScopeNodeReputation" Type="RevolutionModel.Store.ScopeNodeReputation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Character">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeReputation">
+        <PropertyRef Name="CharacterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeReputation_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="1" />
+    <End Role="ScopeNodeReputation" Type="RevolutionModel.Store.ScopeNodeReputation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeReputation">
+        <PropertyRef Name="ScopeNodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeReputationChildParent_ScopeNodeChildParent">
+    <End Role="ScopeNodeChildParent" Type="RevolutionModel.Store.ScopeNodeChildParent" Multiplicity="1" />
+    <End Role="ScopeNodeReputationChildParent" Type="RevolutionModel.Store.ScopeNodeReputationChildParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNodeChildParent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeReputationChildParent">
+        <PropertyRef Name="ScopeNodeChildParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeReputationChildParent_ScopeNodeReputation">
+    <End Role="ScopeNodeReputation" Type="RevolutionModel.Store.ScopeNodeReputation" Multiplicity="1" />
+    <End Role="ScopeNodeReputationChildParent" Type="RevolutionModel.Store.ScopeNodeReputationChildParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNodeReputation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeReputationChildParent">
+        <PropertyRef Name="ChildID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScopeNodeReputationChildParent_ScopeNodeReputation1">
+    <End Role="ScopeNodeReputation" Type="RevolutionModel.Store.ScopeNodeReputation" Multiplicity="1" />
+    <End Role="ScopeNodeReputationChildParent" Type="RevolutionModel.Store.ScopeNodeReputationChildParent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNodeReputation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScopeNodeReputationChildParent">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Town_ScopeNode">
+    <End Role="ScopeNode" Type="RevolutionModel.Store.ScopeNode" Multiplicity="0..1" />
+    <End Role="Town" Type="RevolutionModel.Store.Town" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScopeNode">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Town">
+        <PropertyRef Name="ScopeNodeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
