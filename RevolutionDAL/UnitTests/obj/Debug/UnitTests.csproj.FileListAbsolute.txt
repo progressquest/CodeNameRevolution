@@ -25,3 +25,8 @@ C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.dll
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL.pdb
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.xml
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\ExpressionSerialization.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\RevolutionDAL.pdb
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\UnitTests\bin\Debug\EntityFramework.xml

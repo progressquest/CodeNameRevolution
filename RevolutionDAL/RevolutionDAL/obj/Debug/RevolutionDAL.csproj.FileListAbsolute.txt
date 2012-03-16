@@ -13,3 +13,4 @@ C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\EntityFramework
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\EntityFramework.dll
 D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\EntityFramework.xml
 C:\Users\Todd\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\ExpressionSerialization.dll
+D:\Development\GitProjects\CodeNameRevolution\RevolutionDAL\RevolutionDAL\bin\ExpressionSerialization.dll
